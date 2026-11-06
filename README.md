@@ -4,13 +4,12 @@ This core is a synthesizable bio-inspired Neuromorphic Processor designed for re
 
 ---
 
-## Physical Silicon Layout & Verification Waveform
+## Physical Silicon Layout (Nangate 45nm)
 
 <p align="center">
-  <img src="docs/images/neuromorphic_bci_layout.png" alt="Neuromorphic BCI Physical Layout" width="49%">
-  <img src="docs/images/bci_waveform.png" alt="Real-Time Neural Spike Decoding Waveform" width="49%">
+  <img src="docs/images/neuromorphic_bci_layout.png" alt="Neuromorphic BCI Physical Layout" width="60%">
 </p>
-<p align="center"><em>Left: Tapeout-Ready Physical Layout in Nangate 45nm (11,191 µm², 57% core density, 10 metal layers, routed via OpenROAD / rendered via KLayout). Right: Cycle-accurate GTKWave trace demonstrating 4-phase AER spike reception, membrane potential integration, and real-time motor intent classification.</em></p>
+<p align="center"><em>Tapeout-Ready Physical Layout in Nangate 45nm (11,191 µm², 57% core density, 10 metal layers, routed via OpenROAD / rendered via KLayout).</em></p>
 
 | Physical Signoff Metric | Neuromorphic BCI Top Core | Signoff Engine / Flow |
 | :--- | :--- | :--- |
@@ -23,6 +22,15 @@ This core is a synthesizable bio-inspired Neuromorphic Processor designed for re
 | **Total Power @ 100MHz** | **4.02 mW** (2.24 mW internal, 1.56 mW switching, 0.21 mW leakage) | OpenSTA Power Analyzer |
 | **Power Distribution Network** | M1 Standard Rails, M4 Vertical, M7 Horizontal Straps | OpenROAD PDN Generator |
 | **GDSII Stream File** | [`neuromorphic_bci_top.gds`](pnr/neuromorphic_bci_top.gds) (**1.15 MB**) | KLayout Streamout |
+
+---
+
+## Cycle-Accurate Verification & GTKWave Waveform
+
+<p align="center">
+  <img src="docs/images/bci_waveform.png" alt="Cycle-Accurate GTKWave Neural Spike Decoding Waveform" width="100%">
+</p>
+<p align="center"><em>Authentic GTKWave simulation trace: 4-phase AER spike reception on channel 1 &amp; 3, membrane potential threshold crossing, and real-time motor intent classification (Class 2 Left, Class 5 Right).</em></p>
 
 ---
 
@@ -59,8 +67,8 @@ This core is a synthesizable bio-inspired Neuromorphic Processor designed for re
 - **4-Phase Asynchronous AER Receiver (`aer_rx.v`)**: Captures asynchronous neural spike trains using double-flop request synchronizers and a circular decoupling FIFO, converting continuous spike events into clock-synchronized tokens.
 - **Sparsity-Aware Synaptic Crossbar (`synaptic_crossbar.v`)**: $16 \times 8$ weight matrix with memory-mapped configuration port. Implements zero-weight sparsity gating: when an incoming spike has zero weight for a neuron, the integration logic is gated off, consuming zero dynamic switching energy.
 - **Leaky Integrate-and-Fire Neuron Array (`neuron_array.v` / `lif_neuron.v`)**: Fully parallel 16-bit membrane potential integration with exponential decay leakage:
-  $$V[t] = V[t-1] - (V[t-1] \gg \text{LEAK\_SHIFT}) + \sum_j W_j \cdot S_j[t]$$
-  Features runtime programmable firing threshold $V_{th}$, resting baseline $V_{reset}$, and down-counting refractory period isolation.
+  $$V[t] = V[t-1] - \left( V[t-1] \gg \beta \right) + \sum_j W_{i, j} \cdot S_j[t]$$
+  where $\beta$ is the programmable arithmetic shift decay factor (`LEAK_SHIFT`). Features runtime programmable firing threshold $V_{th}$, resting baseline $V_{reset}$, and down-counting refractory period isolation.
 - **Real-Time Population-Coding BCI Decoder (`bci_decoder.v`)**: Integrates spike counts over configurable temporal epochs (e.g. 64 cycles) and executes a single-cycle Winner-Take-All (ArgMax) intent classification with confidence metrics for neural prosthetics.
 
 ---
@@ -81,7 +89,7 @@ neuromorphic-bci-core/
 ├── sim/                        # Simulation Infrastructure & Waveforms
 │   ├── dump.vcd                # Value Change Dump Waveform Trace
 │   ├── sim_bci.vvp             # Compiled Icarus Verilog Simulation Binary
-│   └── plot_waveform.py        # Matplotlib GTKWave Waveform Generator
+│   └── view_wave.gtkw          # Pre-Configured GTKWave Signal Layout
 ├── synth/                      # ASIC Synthesis Flow
 │   ├── nangate45.lib           # Nangate 45nm Open Cell Library
 │   ├── run_synth_bci.ys        # Yosys RTL-to-Gate Synthesis Script
@@ -93,9 +101,10 @@ neuromorphic-bci-core/
 │   ├── neuromorphic_bci_top.gds# Tapeout-Ready GDSII Stream (1.15 MB)
 │   ├── generate_gds.py         # KLayout Standard Cell GDS Merger
 │   └── render_layout.py        # KLayout Headless High-Res Layout Renderer
-└── docs/images/                # Verified Layout & Waveform Renders
-    ├── neuromorphic_bci_layout.png
-    └── bci_waveform.png
+├── docs/images/                # Verified Layout & Waveform Renders
+│   ├── neuromorphic_bci_layout.png
+│   └── bci_waveform.png
+└── view_waveform.bat           # One-Click Windows GTKWave Launcher
 ```
 
 ---
@@ -108,17 +117,23 @@ iverilog -g2012 -o sim/sim_bci.vvp rtl/*.v tb/tb_neuromorphic_top.v
 vvp sim/sim_bci.vvp
 ```
 
-### 2. Run ASIC Synthesis (Nangate 45nm via Yosys)
+### 2. View Waveforms in GTKWave
+```bash
+# On Windows, double-click view_waveform.bat or run:
+.\view_waveform.bat
+```
+
+### 3. Run ASIC Synthesis (Nangate 45nm via Yosys)
 ```bash
 yosys synth/run_synth_bci.ys
 ```
 
-### 3. Run Physical Place & Route (OpenROAD)
+### 4. Run Physical Place & Route (OpenROAD)
 ```bash
 openroad pnr/run_pnr_bci.tcl
 ```
 
-### 4. Stream Out GDSII & Render Silicon Layout (KLayout)
+### 5. Stream Out GDSII & Render Silicon Layout (KLayout)
 ```bash
 klayout -b -r pnr/generate_gds.py
 klayout -b -r pnr/render_layout.py
