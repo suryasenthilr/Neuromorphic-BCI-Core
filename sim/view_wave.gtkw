@@ -1,0 +1,29 @@
+[*]
+[*] GTKWave Analyzer Save File
+[*]
+[timestart] 0
+[size] 1600 900
+[pos] -1 -1
+*-24.000000 500000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_neuromorphic_top.
+[sst_width] 280
+[signals_width] 220
+[sst_expanded] 1
+[sst_vpaned_height] 300
+@28
+tb_neuromorphic_top.clk
+tb_neuromorphic_top.rst_n
+@28
+tb_neuromorphic_top.aer_req
+tb_neuromorphic_top.aer_ack
+@22
+tb_neuromorphic_top.aer_addr[3:0]
+@28
+tb_neuromorphic_top.spikes_raw[7:0]
+@28
+tb_neuromorphic_top.decision_valid
+@22
+tb_neuromorphic_top.detected_class[2:0]
+tb_neuromorphic_top.confidence_count[7:0]
+[pattern_trace] 1
+[pattern_trace] 0
