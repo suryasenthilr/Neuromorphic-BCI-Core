@@ -1,0 +1,2165 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2025  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.52 (git sha1 fee39a3284c90249e1d9684cf6944ffbbcbb8f90)
+
+-- Executing script file `synth/run_synth_bci.ys' --
+
+1. Executing Verilog-2005 frontend: rtl/lif_neuron.v
+Parsing SystemVerilog input from `rtl/lif_neuron.v' to AST representation.
+Generating RTLIL representation for module `\lif_neuron'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: rtl/aer_rx.v
+Parsing SystemVerilog input from `rtl/aer_rx.v' to AST representation.
+Generating RTLIL representation for module `\aer_rx'.
+Warning: Replacing memory \fifo_mem with list of registers. See rtl/aer_rx.v:93
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: rtl/synaptic_crossbar.v
+Parsing SystemVerilog input from `rtl/synaptic_crossbar.v' to AST representation.
+Generating RTLIL representation for module `\synaptic_crossbar'.
+Warning: Replacing memory \current_weights with list of registers. See rtl/synaptic_crossbar.v:62
+Warning: Replacing memory \weight_matrix with list of registers. See rtl/synaptic_crossbar.v:48
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: rtl/neuron_array.v
+Parsing SystemVerilog input from `rtl/neuron_array.v' to AST representation.
+Generating RTLIL representation for module `\neuron_array'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: rtl/bci_decoder.v
+Parsing SystemVerilog input from `rtl/bci_decoder.v' to AST representation.
+Generating RTLIL representation for module `\bci_decoder'.
+Warning: Replacing memory \spike_counters with list of registers. See rtl/bci_decoder.v:59
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: rtl/neuromorphic_bci_top.v
+Parsing SystemVerilog input from `rtl/neuromorphic_bci_top.v' to AST representation.
+Generating RTLIL representation for module `\neuromorphic_bci_top'.
+Successfully finished Verilog frontend.
+
+7. Executing HIERARCHY pass (managing design hierarchy).
+
+7.1. Analyzing design hierarchy..
+Top module:  \neuromorphic_bci_top
+Used module:     \bci_decoder
+Used module:     \neuron_array
+Used module:         \lif_neuron
+Used module:     \synaptic_crossbar
+Used module:     \aer_rx
+Parameter \DATA_WIDTH = 16
+Parameter \LEAK_SHIFT = 3
+Parameter \REFR_WIDTH = 4
+
+7.2. Executing AST frontend in derive mode using pre-parsed AST for module `\lif_neuron'.
+Parameter \DATA_WIDTH = 16
+Parameter \LEAK_SHIFT = 3
+Parameter \REFR_WIDTH = 4
+Generating RTLIL representation for module `$paramod$4d50ecedb97794f71c3717ccfb23bd955a1d6924\lif_neuron'.
+Parameter \DATA_WIDTH = 16
+Parameter \LEAK_SHIFT = 3
+Parameter \REFR_WIDTH = 4
+Found cached RTLIL representation for module `$paramod$4d50ecedb97794f71c3717ccfb23bd955a1d6924\lif_neuron'.
+Parameter \DATA_WIDTH = 16
+Parameter \LEAK_SHIFT = 3
+Parameter \REFR_WIDTH = 4
+Found cached RTLIL representation for module `$paramod$4d50ecedb97794f71c3717ccfb23bd955a1d6924\lif_neuron'.
+Parameter \DATA_WIDTH = 16
+Parameter \LEAK_SHIFT = 3
+Parameter \REFR_WIDTH = 4
+Found cached RTLIL representation for module `$paramod$4d50ecedb97794f71c3717ccfb23bd955a1d6924\lif_neuron'.
+Parameter \DATA_WIDTH = 16
+Parameter \LEAK_SHIFT = 3
+Parameter \REFR_WIDTH = 4
+Found cached RTLIL representation for module `$paramod$4d50ecedb97794f71c3717ccfb23bd955a1d6924\lif_neuron'.
+Parameter \DATA_WIDTH = 16
+Parameter \LEAK_SHIFT = 3
+Parameter \REFR_WIDTH = 4
+Found cached RTLIL representation for module `$paramod$4d50ecedb97794f71c3717ccfb23bd955a1d6924\lif_neuron'.
+Parameter \DATA_WIDTH = 16
+Parameter \LEAK_SHIFT = 3
+Parameter \REFR_WIDTH = 4
+Found cached RTLIL representation for module `$paramod$4d50ecedb97794f71c3717ccfb23bd955a1d6924\lif_neuron'.
+Parameter \DATA_WIDTH = 16
+Parameter \LEAK_SHIFT = 3
+Parameter \REFR_WIDTH = 4
+Found cached RTLIL representation for module `$paramod$4d50ecedb97794f71c3717ccfb23bd955a1d6924\lif_neuron'.
+Parameter \N_CLASSES = 8
+Parameter \WINDOW_BITS = 8
+
+7.3. Executing AST frontend in derive mode using pre-parsed AST for module `\bci_decoder'.
+Parameter \N_CLASSES = 8
+Parameter \WINDOW_BITS = 8
+Generating RTLIL representation for module `$paramod$5c26b7cde21d534e9f8c9262cc96c7e78c9f3967\bci_decoder'.
+Warning: Replacing memory \spike_counters with list of registers. See rtl/bci_decoder.v:59
+Parameter \N_NEURONS = 8
+Parameter \DATA_WIDTH = 16
+Parameter \WEIGHT_BITS = 8
+Parameter \LEAK_SHIFT = 3
+Parameter \REFR_WIDTH = 4
+
+7.4. Executing AST frontend in derive mode using pre-parsed AST for module `\neuron_array'.
+Parameter \N_NEURONS = 8
+Parameter \DATA_WIDTH = 16
+Parameter \WEIGHT_BITS = 8
+Parameter \LEAK_SHIFT = 3
+Parameter \REFR_WIDTH = 4
+Generating RTLIL representation for module `$paramod$0eb4e1eaf56c8b13ad0ce836cb6b9f231b1df91e\neuron_array'.
+Parameter \N_INPUTS = 16
+Parameter \N_NEURONS = 8
+Parameter \WEIGHT_BITS = 8
+
+7.5. Executing AST frontend in derive mode using pre-parsed AST for module `\synaptic_crossbar'.
+Parameter \N_INPUTS = 16
+Parameter \N_NEURONS = 8
+Parameter \WEIGHT_BITS = 8
+Generating RTLIL representation for module `$paramod$d0f0ac614f95aa8e3c3a262d1e197b3e26bd8d1e\synaptic_crossbar'.
+Warning: Replacing memory \current_weights with list of registers. See rtl/synaptic_crossbar.v:62
+Warning: Replacing memory \weight_matrix with list of registers. See rtl/synaptic_crossbar.v:48
+Parameter \ADDR_WIDTH = 4
+Parameter \FIFO_DEPTH = 16
+
+7.6. Executing AST frontend in derive mode using pre-parsed AST for module `\aer_rx'.
+Parameter \ADDR_WIDTH = 4
+Parameter \FIFO_DEPTH = 16
+Generating RTLIL representation for module `$paramod$e623b10aeb1572fe23ff4dcba9f142c3cfa7693d\aer_rx'.
+Warning: Replacing memory \fifo_mem with list of registers. See rtl/aer_rx.v:93
+
+7.7. Analyzing design hierarchy..
+Top module:  \neuromorphic_bci_top
+Used module:     $paramod$5c26b7cde21d534e9f8c9262cc96c7e78c9f3967\bci_decoder
+Used module:     $paramod$0eb4e1eaf56c8b13ad0ce836cb6b9f231b1df91e\neuron_array
+Used module:         \lif_neuron
+Used module:     $paramod$d0f0ac614f95aa8e3c3a262d1e197b3e26bd8d1e\synaptic_crossbar
+Used module:     $paramod$e623b10aeb1572fe23ff4dcba9f142c3cfa7693d\aer_rx
+Parameter \DATA_WIDTH = 16
+Parameter \LEAK_SHIFT = 3
+Parameter \REFR_WIDTH = 4
+Found cached RTLIL representation for module `$paramod$4d50ecedb97794f71c3717ccfb23bd955a1d6924\lif_neuron'.
+Parameter \DATA_WIDTH = 16
+Parameter \LEAK_SHIFT = 3
+Parameter \REFR_WIDTH = 4
+Found cached RTLIL representation for module `$paramod$4d50ecedb97794f71c3717ccfb23bd955a1d6924\lif_neuron'.
+Parameter \DATA_WIDTH = 16
+Parameter \LEAK_SHIFT = 3
+Parameter \REFR_WIDTH = 4
+Found cached RTLIL representation for module `$paramod$4d50ecedb97794f71c3717ccfb23bd955a1d6924\lif_neuron'.
+Parameter \DATA_WIDTH = 16
+Parameter \LEAK_SHIFT = 3
+Parameter \REFR_WIDTH = 4
+Found cached RTLIL representation for module `$paramod$4d50ecedb97794f71c3717ccfb23bd955a1d6924\lif_neuron'.
+Parameter \DATA_WIDTH = 16
+Parameter \LEAK_SHIFT = 3
+Parameter \REFR_WIDTH = 4
+Found cached RTLIL representation for module `$paramod$4d50ecedb97794f71c3717ccfb23bd955a1d6924\lif_neuron'.
+Parameter \DATA_WIDTH = 16
+Parameter \LEAK_SHIFT = 3
+Parameter \REFR_WIDTH = 4
+Found cached RTLIL representation for module `$paramod$4d50ecedb97794f71c3717ccfb23bd955a1d6924\lif_neuron'.
+Parameter \DATA_WIDTH = 16
+Parameter \LEAK_SHIFT = 3
+Parameter \REFR_WIDTH = 4
+Found cached RTLIL representation for module `$paramod$4d50ecedb97794f71c3717ccfb23bd955a1d6924\lif_neuron'.
+Parameter \DATA_WIDTH = 16
+Parameter \LEAK_SHIFT = 3
+Parameter \REFR_WIDTH = 4
+Found cached RTLIL representation for module `$paramod$4d50ecedb97794f71c3717ccfb23bd955a1d6924\lif_neuron'.
+
+7.8. Analyzing design hierarchy..
+Top module:  \neuromorphic_bci_top
+Used module:     $paramod$5c26b7cde21d534e9f8c9262cc96c7e78c9f3967\bci_decoder
+Used module:     $paramod$0eb4e1eaf56c8b13ad0ce836cb6b9f231b1df91e\neuron_array
+Used module:         $paramod$4d50ecedb97794f71c3717ccfb23bd955a1d6924\lif_neuron
+Used module:     $paramod$d0f0ac614f95aa8e3c3a262d1e197b3e26bd8d1e\synaptic_crossbar
+Used module:     $paramod$e623b10aeb1572fe23ff4dcba9f142c3cfa7693d\aer_rx
+
+7.9. Analyzing design hierarchy..
+Top module:  \neuromorphic_bci_top
+Used module:     $paramod$5c26b7cde21d534e9f8c9262cc96c7e78c9f3967\bci_decoder
+Used module:     $paramod$0eb4e1eaf56c8b13ad0ce836cb6b9f231b1df91e\neuron_array
+Used module:         $paramod$4d50ecedb97794f71c3717ccfb23bd955a1d6924\lif_neuron
+Used module:     $paramod$d0f0ac614f95aa8e3c3a262d1e197b3e26bd8d1e\synaptic_crossbar
+Used module:     $paramod$e623b10aeb1572fe23ff4dcba9f142c3cfa7693d\aer_rx
+Removing unused module `\bci_decoder'.
+Removing unused module `\neuron_array'.
+Removing unused module `\synaptic_crossbar'.
+Removing unused module `\aer_rx'.
+Removing unused module `\lif_neuron'.
+Removed 5 unused modules.
+
+8. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod$e623b10aeb1572fe23ff4dcba9f142c3cfa7693d\aer_rx.
+Deleting now unused module $paramod$d0f0ac614f95aa8e3c3a262d1e197b3e26bd8d1e\synaptic_crossbar.
+Deleting now unused module $paramod$0eb4e1eaf56c8b13ad0ce836cb6b9f231b1df91e\neuron_array.
+Deleting now unused module $paramod$5c26b7cde21d534e9f8c9262cc96c7e78c9f3967\bci_decoder.
+Deleting now unused module $paramod$4d50ecedb97794f71c3717ccfb23bd955a1d6924\lif_neuron.
+<suppressed ~12 debug messages>
+
+9. Executing PROC pass (convert processes to netlists).
+
+9.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+9.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 7 switch rules as full_case in process $flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:40$242 in module neuromorphic_bci_top.
+Marked 2 switch rules as full_case in process $flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:52$250 in module neuromorphic_bci_top.
+Marked 4 switch rules as full_case in process $flatten\u_neuron_array.\GEN_LIF_NEURONS[0].u_neuron.$proc$rtl/lif_neuron.v:61$237 in module neuromorphic_bci_top.
+Marked 3 switch rules as full_case in process $flatten\u_neuron_array.\GEN_LIF_NEURONS[0].u_neuron.$proc$rtl/lif_neuron.v:42$231 in module neuromorphic_bci_top.
+Marked 4 switch rules as full_case in process $flatten\u_neuron_array.\GEN_LIF_NEURONS[1].u_neuron.$proc$rtl/lif_neuron.v:61$237 in module neuromorphic_bci_top.
+Marked 3 switch rules as full_case in process $flatten\u_neuron_array.\GEN_LIF_NEURONS[1].u_neuron.$proc$rtl/lif_neuron.v:42$231 in module neuromorphic_bci_top.
+Marked 4 switch rules as full_case in process $flatten\u_neuron_array.\GEN_LIF_NEURONS[2].u_neuron.$proc$rtl/lif_neuron.v:61$237 in module neuromorphic_bci_top.
+Marked 3 switch rules as full_case in process $flatten\u_neuron_array.\GEN_LIF_NEURONS[2].u_neuron.$proc$rtl/lif_neuron.v:42$231 in module neuromorphic_bci_top.
+Marked 4 switch rules as full_case in process $flatten\u_neuron_array.\GEN_LIF_NEURONS[3].u_neuron.$proc$rtl/lif_neuron.v:61$237 in module neuromorphic_bci_top.
+Marked 3 switch rules as full_case in process $flatten\u_neuron_array.\GEN_LIF_NEURONS[3].u_neuron.$proc$rtl/lif_neuron.v:42$231 in module neuromorphic_bci_top.
+Marked 4 switch rules as full_case in process $flatten\u_neuron_array.\GEN_LIF_NEURONS[4].u_neuron.$proc$rtl/lif_neuron.v:61$237 in module neuromorphic_bci_top.
+Marked 3 switch rules as full_case in process $flatten\u_neuron_array.\GEN_LIF_NEURONS[4].u_neuron.$proc$rtl/lif_neuron.v:42$231 in module neuromorphic_bci_top.
+Marked 4 switch rules as full_case in process $flatten\u_neuron_array.\GEN_LIF_NEURONS[5].u_neuron.$proc$rtl/lif_neuron.v:61$237 in module neuromorphic_bci_top.
+Marked 3 switch rules as full_case in process $flatten\u_neuron_array.\GEN_LIF_NEURONS[5].u_neuron.$proc$rtl/lif_neuron.v:42$231 in module neuromorphic_bci_top.
+Marked 4 switch rules as full_case in process $flatten\u_neuron_array.\GEN_LIF_NEURONS[6].u_neuron.$proc$rtl/lif_neuron.v:61$237 in module neuromorphic_bci_top.
+Marked 3 switch rules as full_case in process $flatten\u_neuron_array.\GEN_LIF_NEURONS[6].u_neuron.$proc$rtl/lif_neuron.v:42$231 in module neuromorphic_bci_top.
+Marked 4 switch rules as full_case in process $flatten\u_neuron_array.\GEN_LIF_NEURONS[7].u_neuron.$proc$rtl/lif_neuron.v:61$237 in module neuromorphic_bci_top.
+Marked 3 switch rules as full_case in process $flatten\u_neuron_array.\GEN_LIF_NEURONS[7].u_neuron.$proc$rtl/lif_neuron.v:42$231 in module neuromorphic_bci_top.
+Marked 3 switch rules as full_case in process $flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280 in module neuromorphic_bci_top.
+Removed 16 dead cases from process $flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290 in module neuromorphic_bci_top.
+Marked 24 switch rules as full_case in process $flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290 in module neuromorphic_bci_top.
+Marked 1 switch rules as full_case in process $flatten\u_aer_rx.$proc$rtl/aer_rx.v:30$413 in module neuromorphic_bci_top.
+Marked 2 switch rules as full_case in process $flatten\u_aer_rx.$proc$rtl/aer_rx.v:48$417 in module neuromorphic_bci_top.
+Marked 3 switch rules as full_case in process $flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424 in module neuromorphic_bci_top.
+Removed 1 dead cases from process $flatten\u_aer_rx.$proc$rtl/aer_rx.v:0$439 in module neuromorphic_bci_top.
+Marked 1 switch rules as full_case in process $flatten\u_aer_rx.$proc$rtl/aer_rx.v:0$439 in module neuromorphic_bci_top.
+Marked 2 switch rules as full_case in process $proc$rtl/neuromorphic_bci_top.v:76$227 in module neuromorphic_bci_top.
+Marked 1 switch rules as full_case in process $proc$rtl/neuromorphic_bci_top.v:54$222 in module neuromorphic_bci_top.
+Removed a total of 17 dead cases.
+
+9.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 21 redundant assignments.
+Promoted 68 assignments to connections.
+
+9.4. Executing PROC_INIT pass (extract init attributes).
+
+9.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \u_bci_decoder.rst_n in `\neuromorphic_bci_top.$flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:52$250'.
+Found async reset \u_neuron_array.GEN_LIF_NEURONS[0].u_neuron.rst_n in `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[0].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+Found async reset \u_neuron_array.GEN_LIF_NEURONS[1].u_neuron.rst_n in `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[1].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+Found async reset \u_neuron_array.GEN_LIF_NEURONS[2].u_neuron.rst_n in `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[2].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+Found async reset \u_neuron_array.GEN_LIF_NEURONS[3].u_neuron.rst_n in `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[3].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+Found async reset \u_neuron_array.GEN_LIF_NEURONS[4].u_neuron.rst_n in `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[4].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+Found async reset \u_neuron_array.GEN_LIF_NEURONS[5].u_neuron.rst_n in `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[5].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+Found async reset \u_neuron_array.GEN_LIF_NEURONS[6].u_neuron.rst_n in `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[6].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+Found async reset \u_neuron_array.GEN_LIF_NEURONS[7].u_neuron.rst_n in `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[7].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+Found async reset \u_crossbar.rst_n in `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+Found async reset \u_aer_rx.rst_n in `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:30$413'.
+Found async reset \u_aer_rx.rst_n in `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:48$417'.
+Found async reset \u_aer_rx.rst_n in `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424'.
+Found async reset \rst_n in `\neuromorphic_bci_top.$proc$rtl/neuromorphic_bci_top.v:76$227'.
+Found async reset \rst_n in `\neuromorphic_bci_top.$proc$rtl/neuromorphic_bci_top.v:54$222'.
+
+9.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~100 debug messages>
+
+9.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\neuromorphic_bci_top.$flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:40$242'.
+     1/14: $flatten\u_bci_decoder.$7\max_idx[2:0]
+     2/14: $flatten\u_bci_decoder.$7\max_val[7:0]
+     3/14: $flatten\u_bci_decoder.$6\max_idx[2:0]
+     4/14: $flatten\u_bci_decoder.$6\max_val[7:0]
+     5/14: $flatten\u_bci_decoder.$5\max_idx[2:0]
+     6/14: $flatten\u_bci_decoder.$5\max_val[7:0]
+     7/14: $flatten\u_bci_decoder.$4\max_idx[2:0]
+     8/14: $flatten\u_bci_decoder.$4\max_val[7:0]
+     9/14: $flatten\u_bci_decoder.$3\max_idx[2:0]
+    10/14: $flatten\u_bci_decoder.$3\max_val[7:0]
+    11/14: $flatten\u_bci_decoder.$2\max_idx[2:0]
+    12/14: $flatten\u_bci_decoder.$2\max_val[7:0]
+    13/14: $flatten\u_bci_decoder.$1\max_idx[2:0]
+    14/14: $flatten\u_bci_decoder.$1\max_val[7:0]
+Creating decoders for process `\neuromorphic_bci_top.$flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:52$250'.
+     1/14: $flatten\u_bci_decoder.$3\k[31:0]
+     2/14: $flatten\u_bci_decoder.$0\window_counter[7:0]
+     3/14: $flatten\u_bci_decoder.$2\k[31:0]
+     4/14: $flatten\u_bci_decoder.$0\decision_valid[0:0]
+     5/14: $flatten\u_bci_decoder.$0\spike_counters[7][7:0]
+     6/14: $flatten\u_bci_decoder.$0\spike_counters[6][7:0]
+     7/14: $flatten\u_bci_decoder.$0\spike_counters[5][7:0]
+     8/14: $flatten\u_bci_decoder.$0\spike_counters[4][7:0]
+     9/14: $flatten\u_bci_decoder.$0\spike_counters[3][7:0]
+    10/14: $flatten\u_bci_decoder.$0\spike_counters[2][7:0]
+    11/14: $flatten\u_bci_decoder.$0\spike_counters[1][7:0]
+    12/14: $flatten\u_bci_decoder.$0\spike_counters[0][7:0]
+    13/14: $flatten\u_bci_decoder.$0\confidence_count[7:0]
+    14/14: $flatten\u_bci_decoder.$0\detected_class[2:0]
+Creating decoders for process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[0].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+     1/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[0].u_neuron.$0\v_membrane[15:0]
+     2/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[0].u_neuron.$0\spike_out[0:0]
+     3/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[0].u_neuron.$0\refr_cnt[3:0]
+Creating decoders for process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[0].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+     1/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[0].u_neuron.$3\next_v[16:0]
+     2/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[0].u_neuron.$2\next_v[16:0]
+     3/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[0].u_neuron.$1\next_v[16:0]
+Creating decoders for process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[1].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+     1/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[1].u_neuron.$0\v_membrane[15:0]
+     2/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[1].u_neuron.$0\spike_out[0:0]
+     3/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[1].u_neuron.$0\refr_cnt[3:0]
+Creating decoders for process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[1].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+     1/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[1].u_neuron.$3\next_v[16:0]
+     2/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[1].u_neuron.$2\next_v[16:0]
+     3/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[1].u_neuron.$1\next_v[16:0]
+Creating decoders for process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[2].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+     1/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[2].u_neuron.$0\v_membrane[15:0]
+     2/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[2].u_neuron.$0\spike_out[0:0]
+     3/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[2].u_neuron.$0\refr_cnt[3:0]
+Creating decoders for process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[2].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+     1/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[2].u_neuron.$3\next_v[16:0]
+     2/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[2].u_neuron.$2\next_v[16:0]
+     3/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[2].u_neuron.$1\next_v[16:0]
+Creating decoders for process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[3].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+     1/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[3].u_neuron.$0\v_membrane[15:0]
+     2/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[3].u_neuron.$0\spike_out[0:0]
+     3/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[3].u_neuron.$0\refr_cnt[3:0]
+Creating decoders for process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[3].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+     1/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[3].u_neuron.$3\next_v[16:0]
+     2/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[3].u_neuron.$2\next_v[16:0]
+     3/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[3].u_neuron.$1\next_v[16:0]
+Creating decoders for process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[4].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+     1/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[4].u_neuron.$0\v_membrane[15:0]
+     2/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[4].u_neuron.$0\spike_out[0:0]
+     3/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[4].u_neuron.$0\refr_cnt[3:0]
+Creating decoders for process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[4].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+     1/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[4].u_neuron.$3\next_v[16:0]
+     2/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[4].u_neuron.$2\next_v[16:0]
+     3/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[4].u_neuron.$1\next_v[16:0]
+Creating decoders for process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[5].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+     1/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[5].u_neuron.$0\v_membrane[15:0]
+     2/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[5].u_neuron.$0\spike_out[0:0]
+     3/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[5].u_neuron.$0\refr_cnt[3:0]
+Creating decoders for process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[5].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+     1/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[5].u_neuron.$3\next_v[16:0]
+     2/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[5].u_neuron.$2\next_v[16:0]
+     3/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[5].u_neuron.$1\next_v[16:0]
+Creating decoders for process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[6].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+     1/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[6].u_neuron.$0\v_membrane[15:0]
+     2/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[6].u_neuron.$0\spike_out[0:0]
+     3/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[6].u_neuron.$0\refr_cnt[3:0]
+Creating decoders for process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[6].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+     1/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[6].u_neuron.$3\next_v[16:0]
+     2/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[6].u_neuron.$2\next_v[16:0]
+     3/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[6].u_neuron.$1\next_v[16:0]
+Creating decoders for process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[7].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+     1/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[7].u_neuron.$0\v_membrane[15:0]
+     2/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[7].u_neuron.$0\spike_out[0:0]
+     3/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[7].u_neuron.$0\refr_cnt[3:0]
+Creating decoders for process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[7].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+     1/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[7].u_neuron.$3\next_v[16:0]
+     2/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[7].u_neuron.$2\next_v[16:0]
+     3/3: $flatten\u_neuron_array.\GEN_LIF_NEURONS[7].u_neuron.$1\next_v[16:0]
+Creating decoders for process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+     1/134: $flatten\u_crossbar.$2$mem2reg_wr$\weight_matrix$rtl/synaptic_crossbar.v:52$263_ADDR[6:0]$286
+     2/134: $flatten\u_crossbar.$2$mem2reg_wr$\weight_matrix$rtl/synaptic_crossbar.v:52$263_DATA[7:0]$287
+     3/134: $flatten\u_crossbar.$1$mem2reg_wr$\weight_matrix$rtl/synaptic_crossbar.v:52$263_DATA[7:0]$285
+     4/134: $flatten\u_crossbar.$1$mem2reg_wr$\weight_matrix$rtl/synaptic_crossbar.v:52$263_ADDR[6:0]$284
+     5/134: $flatten\u_crossbar.$1\j[31:0]
+     6/134: $flatten\u_crossbar.$1\i[31:0]
+     7/134: $flatten\u_crossbar.$0\weight_matrix[127][7:0]
+     8/134: $flatten\u_crossbar.$0\weight_matrix[126][7:0]
+     9/134: $flatten\u_crossbar.$0\weight_matrix[125][7:0]
+    10/134: $flatten\u_crossbar.$0\weight_matrix[124][7:0]
+    11/134: $flatten\u_crossbar.$0\weight_matrix[123][7:0]
+    12/134: $flatten\u_crossbar.$0\weight_matrix[122][7:0]
+    13/134: $flatten\u_crossbar.$0\weight_matrix[121][7:0]
+    14/134: $flatten\u_crossbar.$0\weight_matrix[120][7:0]
+    15/134: $flatten\u_crossbar.$0\weight_matrix[119][7:0]
+    16/134: $flatten\u_crossbar.$0\weight_matrix[118][7:0]
+    17/134: $flatten\u_crossbar.$0\weight_matrix[117][7:0]
+    18/134: $flatten\u_crossbar.$0\weight_matrix[116][7:0]
+    19/134: $flatten\u_crossbar.$0\weight_matrix[115][7:0]
+    20/134: $flatten\u_crossbar.$0\weight_matrix[114][7:0]
+    21/134: $flatten\u_crossbar.$0\weight_matrix[113][7:0]
+    22/134: $flatten\u_crossbar.$0\weight_matrix[112][7:0]
+    23/134: $flatten\u_crossbar.$0\weight_matrix[111][7:0]
+    24/134: $flatten\u_crossbar.$0\weight_matrix[110][7:0]
+    25/134: $flatten\u_crossbar.$0\weight_matrix[109][7:0]
+    26/134: $flatten\u_crossbar.$0\weight_matrix[108][7:0]
+    27/134: $flatten\u_crossbar.$0\weight_matrix[107][7:0]
+    28/134: $flatten\u_crossbar.$0\weight_matrix[106][7:0]
+    29/134: $flatten\u_crossbar.$0\weight_matrix[105][7:0]
+    30/134: $flatten\u_crossbar.$0\weight_matrix[104][7:0]
+    31/134: $flatten\u_crossbar.$0\weight_matrix[103][7:0]
+    32/134: $flatten\u_crossbar.$0\weight_matrix[102][7:0]
+    33/134: $flatten\u_crossbar.$0\weight_matrix[101][7:0]
+    34/134: $flatten\u_crossbar.$0\weight_matrix[100][7:0]
+    35/134: $flatten\u_crossbar.$0\weight_matrix[99][7:0]
+    36/134: $flatten\u_crossbar.$0\weight_matrix[98][7:0]
+    37/134: $flatten\u_crossbar.$0\weight_matrix[97][7:0]
+    38/134: $flatten\u_crossbar.$0\weight_matrix[96][7:0]
+    39/134: $flatten\u_crossbar.$0\weight_matrix[95][7:0]
+    40/134: $flatten\u_crossbar.$0\weight_matrix[94][7:0]
+    41/134: $flatten\u_crossbar.$0\weight_matrix[93][7:0]
+    42/134: $flatten\u_crossbar.$0\weight_matrix[92][7:0]
+    43/134: $flatten\u_crossbar.$0\weight_matrix[91][7:0]
+    44/134: $flatten\u_crossbar.$0\weight_matrix[90][7:0]
+    45/134: $flatten\u_crossbar.$0\weight_matrix[89][7:0]
+    46/134: $flatten\u_crossbar.$0\weight_matrix[88][7:0]
+    47/134: $flatten\u_crossbar.$0\weight_matrix[87][7:0]
+    48/134: $flatten\u_crossbar.$0\weight_matrix[86][7:0]
+    49/134: $flatten\u_crossbar.$0\weight_matrix[85][7:0]
+    50/134: $flatten\u_crossbar.$0\weight_matrix[84][7:0]
+    51/134: $flatten\u_crossbar.$0\weight_matrix[83][7:0]
+    52/134: $flatten\u_crossbar.$0\weight_matrix[82][7:0]
+    53/134: $flatten\u_crossbar.$0\weight_matrix[81][7:0]
+    54/134: $flatten\u_crossbar.$0\weight_matrix[80][7:0]
+    55/134: $flatten\u_crossbar.$0\weight_matrix[79][7:0]
+    56/134: $flatten\u_crossbar.$0\weight_matrix[78][7:0]
+    57/134: $flatten\u_crossbar.$0\weight_matrix[77][7:0]
+    58/134: $flatten\u_crossbar.$0\weight_matrix[76][7:0]
+    59/134: $flatten\u_crossbar.$0\weight_matrix[75][7:0]
+    60/134: $flatten\u_crossbar.$0\weight_matrix[74][7:0]
+    61/134: $flatten\u_crossbar.$0\weight_matrix[73][7:0]
+    62/134: $flatten\u_crossbar.$0\weight_matrix[72][7:0]
+    63/134: $flatten\u_crossbar.$0\weight_matrix[71][7:0]
+    64/134: $flatten\u_crossbar.$0\weight_matrix[70][7:0]
+    65/134: $flatten\u_crossbar.$0\weight_matrix[69][7:0]
+    66/134: $flatten\u_crossbar.$0\weight_matrix[68][7:0]
+    67/134: $flatten\u_crossbar.$0\weight_matrix[67][7:0]
+    68/134: $flatten\u_crossbar.$0\weight_matrix[66][7:0]
+    69/134: $flatten\u_crossbar.$0\weight_matrix[65][7:0]
+    70/134: $flatten\u_crossbar.$0\weight_matrix[64][7:0]
+    71/134: $flatten\u_crossbar.$0\weight_matrix[63][7:0]
+    72/134: $flatten\u_crossbar.$0\weight_matrix[62][7:0]
+    73/134: $flatten\u_crossbar.$0\weight_matrix[61][7:0]
+    74/134: $flatten\u_crossbar.$0\weight_matrix[60][7:0]
+    75/134: $flatten\u_crossbar.$0\weight_matrix[59][7:0]
+    76/134: $flatten\u_crossbar.$0\weight_matrix[58][7:0]
+    77/134: $flatten\u_crossbar.$0\weight_matrix[57][7:0]
+    78/134: $flatten\u_crossbar.$0\weight_matrix[56][7:0]
+    79/134: $flatten\u_crossbar.$0\weight_matrix[55][7:0]
+    80/134: $flatten\u_crossbar.$0\weight_matrix[54][7:0]
+    81/134: $flatten\u_crossbar.$0\weight_matrix[53][7:0]
+    82/134: $flatten\u_crossbar.$0\weight_matrix[52][7:0]
+    83/134: $flatten\u_crossbar.$0\weight_matrix[51][7:0]
+    84/134: $flatten\u_crossbar.$0\weight_matrix[50][7:0]
+    85/134: $flatten\u_crossbar.$0\weight_matrix[49][7:0]
+    86/134: $flatten\u_crossbar.$0\weight_matrix[48][7:0]
+    87/134: $flatten\u_crossbar.$0\weight_matrix[47][7:0]
+    88/134: $flatten\u_crossbar.$0\weight_matrix[46][7:0]
+    89/134: $flatten\u_crossbar.$0\weight_matrix[45][7:0]
+    90/134: $flatten\u_crossbar.$0\weight_matrix[44][7:0]
+    91/134: $flatten\u_crossbar.$0\weight_matrix[43][7:0]
+    92/134: $flatten\u_crossbar.$0\weight_matrix[42][7:0]
+    93/134: $flatten\u_crossbar.$0\weight_matrix[41][7:0]
+    94/134: $flatten\u_crossbar.$0\weight_matrix[40][7:0]
+    95/134: $flatten\u_crossbar.$0\weight_matrix[39][7:0]
+    96/134: $flatten\u_crossbar.$0\weight_matrix[38][7:0]
+    97/134: $flatten\u_crossbar.$0\weight_matrix[37][7:0]
+    98/134: $flatten\u_crossbar.$0\weight_matrix[36][7:0]
+    99/134: $flatten\u_crossbar.$0\weight_matrix[35][7:0]
+   100/134: $flatten\u_crossbar.$0\weight_matrix[34][7:0]
+   101/134: $flatten\u_crossbar.$0\weight_matrix[33][7:0]
+   102/134: $flatten\u_crossbar.$0\weight_matrix[32][7:0]
+   103/134: $flatten\u_crossbar.$0\weight_matrix[31][7:0]
+   104/134: $flatten\u_crossbar.$0\weight_matrix[30][7:0]
+   105/134: $flatten\u_crossbar.$0\weight_matrix[29][7:0]
+   106/134: $flatten\u_crossbar.$0\weight_matrix[28][7:0]
+   107/134: $flatten\u_crossbar.$0\weight_matrix[27][7:0]
+   108/134: $flatten\u_crossbar.$0\weight_matrix[26][7:0]
+   109/134: $flatten\u_crossbar.$0\weight_matrix[25][7:0]
+   110/134: $flatten\u_crossbar.$0\weight_matrix[24][7:0]
+   111/134: $flatten\u_crossbar.$0\weight_matrix[23][7:0]
+   112/134: $flatten\u_crossbar.$0\weight_matrix[22][7:0]
+   113/134: $flatten\u_crossbar.$0\weight_matrix[21][7:0]
+   114/134: $flatten\u_crossbar.$0\weight_matrix[20][7:0]
+   115/134: $flatten\u_crossbar.$0\weight_matrix[19][7:0]
+   116/134: $flatten\u_crossbar.$0\weight_matrix[18][7:0]
+   117/134: $flatten\u_crossbar.$0\weight_matrix[17][7:0]
+   118/134: $flatten\u_crossbar.$0\weight_matrix[16][7:0]
+   119/134: $flatten\u_crossbar.$0\weight_matrix[15][7:0]
+   120/134: $flatten\u_crossbar.$0\weight_matrix[14][7:0]
+   121/134: $flatten\u_crossbar.$0\weight_matrix[13][7:0]
+   122/134: $flatten\u_crossbar.$0\weight_matrix[12][7:0]
+   123/134: $flatten\u_crossbar.$0\weight_matrix[11][7:0]
+   124/134: $flatten\u_crossbar.$0\weight_matrix[10][7:0]
+   125/134: $flatten\u_crossbar.$0\weight_matrix[9][7:0]
+   126/134: $flatten\u_crossbar.$0\weight_matrix[8][7:0]
+   127/134: $flatten\u_crossbar.$0\weight_matrix[7][7:0]
+   128/134: $flatten\u_crossbar.$0\weight_matrix[6][7:0]
+   129/134: $flatten\u_crossbar.$0\weight_matrix[5][7:0]
+   130/134: $flatten\u_crossbar.$0\weight_matrix[4][7:0]
+   131/134: $flatten\u_crossbar.$0\weight_matrix[3][7:0]
+   132/134: $flatten\u_crossbar.$0\weight_matrix[2][7:0]
+   133/134: $flatten\u_crossbar.$0\weight_matrix[1][7:0]
+   134/134: $flatten\u_crossbar.$0\weight_matrix[0][7:0]
+Creating decoders for process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+     1/64: $flatten\u_crossbar.$2$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$279_DATA[7:0]$409
+     2/64: $flatten\u_crossbar.$2$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$278_DATA[7:0]$406
+     3/64: $flatten\u_crossbar.$8\post_syn_valid[7:7]
+     4/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$279_DATA[7:0]$403
+     5/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$279_ADDR[6:0]$402
+     6/64: $flatten\u_crossbar.$1\current_weights[7][7:0]
+     7/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$278_DATA[7:0]$401
+     8/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$278_ADDR[6:0]$400
+     9/64: $flatten\u_crossbar.$2$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$277_DATA[7:0]$398
+    10/64: $flatten\u_crossbar.$2$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$276_DATA[7:0]$395
+    11/64: $flatten\u_crossbar.$7\post_syn_valid[6:6]
+    12/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$277_DATA[7:0]$392
+    13/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$277_ADDR[6:0]$391
+    14/64: $flatten\u_crossbar.$1\current_weights[6][7:0]
+    15/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$276_DATA[7:0]$390
+    16/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$276_ADDR[6:0]$389
+    17/64: $flatten\u_crossbar.$2$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$275_DATA[7:0]$387
+    18/64: $flatten\u_crossbar.$2$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$274_DATA[7:0]$384
+    19/64: $flatten\u_crossbar.$6\post_syn_valid[5:5]
+    20/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$275_DATA[7:0]$381
+    21/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$275_ADDR[6:0]$380
+    22/64: $flatten\u_crossbar.$1\current_weights[5][7:0]
+    23/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$274_DATA[7:0]$379
+    24/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$274_ADDR[6:0]$378
+    25/64: $flatten\u_crossbar.$2$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$273_DATA[7:0]$376
+    26/64: $flatten\u_crossbar.$2$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$272_DATA[7:0]$373
+    27/64: $flatten\u_crossbar.$5\post_syn_valid[4:4]
+    28/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$273_DATA[7:0]$370
+    29/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$273_ADDR[6:0]$369
+    30/64: $flatten\u_crossbar.$1\current_weights[4][7:0]
+    31/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$272_DATA[7:0]$368
+    32/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$272_ADDR[6:0]$367
+    33/64: $flatten\u_crossbar.$2$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$271_DATA[7:0]$365
+    34/64: $flatten\u_crossbar.$2$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$270_DATA[7:0]$362
+    35/64: $flatten\u_crossbar.$4\post_syn_valid[3:3]
+    36/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$271_DATA[7:0]$359
+    37/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$271_ADDR[6:0]$358
+    38/64: $flatten\u_crossbar.$1\current_weights[3][7:0]
+    39/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$270_DATA[7:0]$357
+    40/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$270_ADDR[6:0]$356
+    41/64: $flatten\u_crossbar.$2$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$269_DATA[7:0]$354
+    42/64: $flatten\u_crossbar.$2$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$268_DATA[7:0]$351
+    43/64: $flatten\u_crossbar.$3\post_syn_valid[2:2]
+    44/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$269_DATA[7:0]$348
+    45/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$269_ADDR[6:0]$347
+    46/64: $flatten\u_crossbar.$1\current_weights[2][7:0]
+    47/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$268_DATA[7:0]$346
+    48/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$268_ADDR[6:0]$345
+    49/64: $flatten\u_crossbar.$2$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$267_DATA[7:0]$343
+    50/64: $flatten\u_crossbar.$2$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$266_DATA[7:0]$340
+    51/64: $flatten\u_crossbar.$2\post_syn_valid[1:1]
+    52/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$267_DATA[7:0]$337
+    53/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$267_ADDR[6:0]$336
+    54/64: $flatten\u_crossbar.$1\current_weights[1][7:0]
+    55/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$266_DATA[7:0]$335
+    56/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$266_ADDR[6:0]$334
+    57/64: $flatten\u_crossbar.$2$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$265_DATA[7:0]$332
+    58/64: $flatten\u_crossbar.$2$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$264_DATA[7:0]$329
+    59/64: $flatten\u_crossbar.$1\post_syn_valid[0:0]
+    60/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$265_DATA[7:0]$326
+    61/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$265_ADDR[6:0]$325
+    62/64: $flatten\u_crossbar.$1\current_weights[0][7:0]
+    63/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$264_DATA[7:0]$324
+    64/64: $flatten\u_crossbar.$1$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$264_ADDR[6:0]$323
+Creating decoders for process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:30$413'.
+     1/1: $flatten\u_aer_rx.$0\req_sync[2:0]
+Creating decoders for process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:48$417'.
+     1/4: $flatten\u_aer_rx.$0\push_fifo[0:0]
+     2/4: $flatten\u_aer_rx.$0\captured_addr[3:0]
+     3/4: $flatten\u_aer_rx.$0\state[1:0]
+     4/4: $flatten\u_aer_rx.$0\aer_ack[0:0]
+Creating decoders for process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424'.
+     1/22: $flatten\u_aer_rx.$2$mem2reg_wr$\fifo_mem$rtl/aer_rx.v:93$411_ADDR[3:0]$432
+     2/22: $flatten\u_aer_rx.$2$mem2reg_wr$\fifo_mem$rtl/aer_rx.v:93$411_DATA[3:0]$433
+     3/22: $flatten\u_aer_rx.$1$mem2reg_wr$\fifo_mem$rtl/aer_rx.v:93$411_DATA[3:0]$429
+     4/22: $flatten\u_aer_rx.$1$mem2reg_wr$\fifo_mem$rtl/aer_rx.v:93$411_ADDR[3:0]$428
+     5/22: $flatten\u_aer_rx.$0\fifo_mem[15][3:0]
+     6/22: $flatten\u_aer_rx.$0\fifo_mem[14][3:0]
+     7/22: $flatten\u_aer_rx.$0\fifo_mem[13][3:0]
+     8/22: $flatten\u_aer_rx.$0\fifo_mem[12][3:0]
+     9/22: $flatten\u_aer_rx.$0\fifo_mem[11][3:0]
+    10/22: $flatten\u_aer_rx.$0\fifo_mem[10][3:0]
+    11/22: $flatten\u_aer_rx.$0\fifo_mem[9][3:0]
+    12/22: $flatten\u_aer_rx.$0\fifo_mem[8][3:0]
+    13/22: $flatten\u_aer_rx.$0\fifo_mem[7][3:0]
+    14/22: $flatten\u_aer_rx.$0\fifo_mem[6][3:0]
+    15/22: $flatten\u_aer_rx.$0\fifo_mem[5][3:0]
+    16/22: $flatten\u_aer_rx.$0\fifo_mem[4][3:0]
+    17/22: $flatten\u_aer_rx.$0\fifo_mem[3][3:0]
+    18/22: $flatten\u_aer_rx.$0\fifo_mem[2][3:0]
+    19/22: $flatten\u_aer_rx.$0\fifo_mem[1][3:0]
+    20/22: $flatten\u_aer_rx.$0\fifo_mem[0][3:0]
+    21/22: $flatten\u_aer_rx.$0\rd_ptr[4:0]
+    22/22: $flatten\u_aer_rx.$0\wr_ptr[4:0]
+Creating decoders for process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:0$439'.
+     1/1: $flatten\u_aer_rx.$1$mem2reg_rd$\fifo_mem$rtl/aer_rx.v:103$412_DATA[3:0]$441
+Creating decoders for process `\neuromorphic_bci_top.$proc$rtl/neuromorphic_bci_top.v:76$227'.
+     1/1: $0\leak_cnt[7:0]
+Creating decoders for process `\neuromorphic_bci_top.$proc$rtl/neuromorphic_bci_top.v:54$222'.
+     1/5: $0\reg_leak_prescale[7:0]
+     2/5: $0\reg_window_len[7:0]
+     3/5: $0\reg_refr_period[3:0]
+     4/5: $0\reg_v_reset[15:0]
+     5/5: $0\reg_v_threshold[15:0]
+
+9.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\neuromorphic_bci_top.\u_bci_decoder.k' from process `\neuromorphic_bci_top.$flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:40$242'.
+No latch inferred for signal `\neuromorphic_bci_top.\u_bci_decoder.max_idx' from process `\neuromorphic_bci_top.$flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:40$242'.
+No latch inferred for signal `\neuromorphic_bci_top.\u_bci_decoder.max_val' from process `\neuromorphic_bci_top.$flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:40$242'.
+No latch inferred for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[0].u_neuron.next_v' from process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[0].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+No latch inferred for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[1].u_neuron.next_v' from process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[1].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+No latch inferred for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[2].u_neuron.next_v' from process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[2].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+No latch inferred for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[3].u_neuron.next_v' from process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[3].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+No latch inferred for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[4].u_neuron.next_v' from process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[4].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+No latch inferred for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[5].u_neuron.next_v' from process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[5].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+No latch inferred for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[6].u_neuron.next_v' from process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[6].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+No latch inferred for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[7].u_neuron.next_v' from process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[7].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+No latch inferred for signal `\neuromorphic_bci_top.\u_crossbar.post_syn_valid' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.\u_crossbar.j' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.\u_crossbar.current_weights[0]' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.\u_crossbar.current_weights[1]' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.\u_crossbar.current_weights[2]' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.\u_crossbar.current_weights[3]' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.\u_crossbar.current_weights[4]' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.\u_crossbar.current_weights[5]' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.\u_crossbar.current_weights[6]' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.\u_crossbar.current_weights[7]' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$264_ADDR' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$264_DATA' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$265_ADDR' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$265_DATA' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$266_ADDR' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$266_DATA' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$267_ADDR' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$267_DATA' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$268_ADDR' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$268_DATA' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$269_ADDR' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$269_DATA' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$270_ADDR' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$270_DATA' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$271_ADDR' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$271_DATA' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$272_ADDR' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$272_DATA' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$273_ADDR' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$273_DATA' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$274_ADDR' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$274_DATA' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$275_ADDR' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$275_DATA' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$276_ADDR' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$276_DATA' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$277_ADDR' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$277_DATA' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$278_ADDR' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:62$278_DATA' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$279_ADDR' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_rd$\weight_matrix$rtl/synaptic_crossbar.v:64$279_DATA' from process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+No latch inferred for signal `\neuromorphic_bci_top.$flatten\u_aer_rx.$mem2reg_rd$\fifo_mem$rtl/aer_rx.v:103$412_DATA' from process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:0$439'.
+
+9.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\neuromorphic_bci_top.\u_bci_decoder.decision_valid' using process `\neuromorphic_bci_top.$flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:52$250'.
+  created $adff cell `$procdff$12161' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_bci_decoder.detected_class' using process `\neuromorphic_bci_top.$flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:52$250'.
+  created $adff cell `$procdff$12166' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_bci_decoder.confidence_count' using process `\neuromorphic_bci_top.$flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:52$250'.
+  created $adff cell `$procdff$12171' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_bci_decoder.window_counter' using process `\neuromorphic_bci_top.$flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:52$250'.
+  created $adff cell `$procdff$12176' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_bci_decoder.k' using process `\neuromorphic_bci_top.$flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:52$250'.
+  created $dff cell `$procdff$12183' with positive edge clock.
+Creating register for signal `\neuromorphic_bci_top.\u_bci_decoder.spike_counters[0]' using process `\neuromorphic_bci_top.$flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:52$250'.
+  created $adff cell `$procdff$12188' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_bci_decoder.spike_counters[1]' using process `\neuromorphic_bci_top.$flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:52$250'.
+  created $adff cell `$procdff$12193' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_bci_decoder.spike_counters[2]' using process `\neuromorphic_bci_top.$flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:52$250'.
+  created $adff cell `$procdff$12198' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_bci_decoder.spike_counters[3]' using process `\neuromorphic_bci_top.$flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:52$250'.
+  created $adff cell `$procdff$12203' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_bci_decoder.spike_counters[4]' using process `\neuromorphic_bci_top.$flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:52$250'.
+  created $adff cell `$procdff$12208' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_bci_decoder.spike_counters[5]' using process `\neuromorphic_bci_top.$flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:52$250'.
+  created $adff cell `$procdff$12213' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_bci_decoder.spike_counters[6]' using process `\neuromorphic_bci_top.$flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:52$250'.
+  created $adff cell `$procdff$12218' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_bci_decoder.spike_counters[7]' using process `\neuromorphic_bci_top.$flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:52$250'.
+  created $adff cell `$procdff$12223' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[0].u_neuron.spike_out' using process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[0].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+  created $adff cell `$procdff$12228' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[0].u_neuron.v_membrane' using process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[0].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+  created $adff cell `$procdff$12233' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[0].u_neuron.refr_cnt' using process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[0].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+  created $adff cell `$procdff$12238' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[1].u_neuron.spike_out' using process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[1].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+  created $adff cell `$procdff$12243' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[1].u_neuron.v_membrane' using process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[1].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+  created $adff cell `$procdff$12248' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[1].u_neuron.refr_cnt' using process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[1].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+  created $adff cell `$procdff$12253' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[2].u_neuron.spike_out' using process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[2].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+  created $adff cell `$procdff$12258' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[2].u_neuron.v_membrane' using process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[2].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+  created $adff cell `$procdff$12263' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[2].u_neuron.refr_cnt' using process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[2].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+  created $adff cell `$procdff$12268' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[3].u_neuron.spike_out' using process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[3].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+  created $adff cell `$procdff$12273' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[3].u_neuron.v_membrane' using process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[3].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+  created $adff cell `$procdff$12278' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[3].u_neuron.refr_cnt' using process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[3].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+  created $adff cell `$procdff$12283' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[4].u_neuron.spike_out' using process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[4].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+  created $adff cell `$procdff$12288' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[4].u_neuron.v_membrane' using process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[4].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+  created $adff cell `$procdff$12293' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[4].u_neuron.refr_cnt' using process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[4].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+  created $adff cell `$procdff$12298' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[5].u_neuron.spike_out' using process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[5].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+  created $adff cell `$procdff$12303' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[5].u_neuron.v_membrane' using process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[5].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+  created $adff cell `$procdff$12308' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[5].u_neuron.refr_cnt' using process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[5].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+  created $adff cell `$procdff$12313' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[6].u_neuron.spike_out' using process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[6].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+  created $adff cell `$procdff$12318' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[6].u_neuron.v_membrane' using process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[6].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+  created $adff cell `$procdff$12323' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[6].u_neuron.refr_cnt' using process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[6].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+  created $adff cell `$procdff$12328' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[7].u_neuron.spike_out' using process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[7].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+  created $adff cell `$procdff$12333' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[7].u_neuron.v_membrane' using process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[7].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+  created $adff cell `$procdff$12338' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_neuron_array.GEN_LIF_NEURONS[7].u_neuron.refr_cnt' using process `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[7].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+  created $adff cell `$procdff$12343' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.i' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12348' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.j' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $dff cell `$procdff$12355' with positive edge clock.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[0]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12360' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[1]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12365' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[2]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12370' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[3]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12375' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[4]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12380' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[5]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12385' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[6]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12390' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[7]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12395' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[8]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12400' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[9]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12405' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[10]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12410' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[11]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12415' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[12]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12420' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[13]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12425' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[14]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12430' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[15]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12435' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[16]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12440' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[17]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12445' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[18]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12450' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[19]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12455' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[20]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12460' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[21]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12465' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[22]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12470' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[23]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12475' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[24]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12480' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[25]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12485' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[26]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12490' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[27]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12495' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[28]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12500' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[29]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12505' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[30]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12510' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[31]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12515' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[32]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12520' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[33]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12525' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[34]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12530' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[35]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12535' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[36]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12540' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[37]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12545' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[38]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12550' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[39]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12555' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[40]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12560' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[41]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12565' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[42]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12570' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[43]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12575' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[44]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12580' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[45]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12585' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[46]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12590' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[47]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12595' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[48]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12600' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[49]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12605' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[50]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12610' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[51]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12615' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[52]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12620' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[53]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12625' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[54]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12630' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[55]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12635' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[56]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12640' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[57]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12645' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[58]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12650' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[59]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12655' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[60]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12660' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[61]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12665' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[62]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12670' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[63]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12675' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[64]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12680' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[65]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12685' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[66]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12690' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[67]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12695' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[68]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12700' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[69]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12705' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[70]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12710' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[71]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12715' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[72]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12720' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[73]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12725' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[74]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12730' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[75]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12735' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[76]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12740' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[77]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12745' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[78]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12750' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[79]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12755' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[80]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12760' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[81]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12765' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[82]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12770' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[83]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12775' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[84]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12780' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[85]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12785' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[86]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12790' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[87]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12795' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[88]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12800' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[89]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12805' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[90]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12810' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[91]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12815' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[92]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12820' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[93]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12825' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[94]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12830' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[95]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12835' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[96]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12840' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[97]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12845' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[98]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12850' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[99]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12855' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[100]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12860' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[101]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12865' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[102]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12870' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[103]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12875' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[104]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12880' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[105]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12885' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[106]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12890' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[107]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12895' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[108]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12900' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[109]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12905' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[110]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12910' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[111]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12915' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[112]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12920' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[113]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12925' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[114]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12930' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[115]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12935' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[116]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12940' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[117]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12945' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[118]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12950' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[119]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12955' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[120]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12960' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[121]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12965' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[122]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12970' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[123]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12975' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[124]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12980' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[125]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12985' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[126]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12990' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_crossbar.weight_matrix[127]' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$12995' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_wr$\weight_matrix$rtl/synaptic_crossbar.v:52$263_ADDR' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$13000' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.$flatten\u_crossbar.$mem2reg_wr$\weight_matrix$rtl/synaptic_crossbar.v:52$263_DATA' using process `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+  created $adff cell `$procdff$13005' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_aer_rx.req_sync' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:30$413'.
+  created $adff cell `$procdff$13010' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_aer_rx.aer_ack' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:48$417'.
+  created $adff cell `$procdff$13015' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_aer_rx.state' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:48$417'.
+  created $adff cell `$procdff$13020' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_aer_rx.captured_addr' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:48$417'.
+  created $adff cell `$procdff$13025' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_aer_rx.push_fifo' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:48$417'.
+  created $adff cell `$procdff$13030' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_aer_rx.wr_ptr' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424'.
+  created $adff cell `$procdff$13035' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_aer_rx.rd_ptr' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424'.
+  created $adff cell `$procdff$13040' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\u_aer_rx.fifo_mem[0]' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424'.
+  created $dff cell `$procdff$13047' with positive edge clock.
+Creating register for signal `\neuromorphic_bci_top.\u_aer_rx.fifo_mem[1]' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424'.
+  created $dff cell `$procdff$13054' with positive edge clock.
+Creating register for signal `\neuromorphic_bci_top.\u_aer_rx.fifo_mem[2]' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424'.
+  created $dff cell `$procdff$13061' with positive edge clock.
+Creating register for signal `\neuromorphic_bci_top.\u_aer_rx.fifo_mem[3]' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424'.
+  created $dff cell `$procdff$13068' with positive edge clock.
+Creating register for signal `\neuromorphic_bci_top.\u_aer_rx.fifo_mem[4]' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424'.
+  created $dff cell `$procdff$13075' with positive edge clock.
+Creating register for signal `\neuromorphic_bci_top.\u_aer_rx.fifo_mem[5]' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424'.
+  created $dff cell `$procdff$13082' with positive edge clock.
+Creating register for signal `\neuromorphic_bci_top.\u_aer_rx.fifo_mem[6]' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424'.
+  created $dff cell `$procdff$13089' with positive edge clock.
+Creating register for signal `\neuromorphic_bci_top.\u_aer_rx.fifo_mem[7]' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424'.
+  created $dff cell `$procdff$13096' with positive edge clock.
+Creating register for signal `\neuromorphic_bci_top.\u_aer_rx.fifo_mem[8]' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424'.
+  created $dff cell `$procdff$13103' with positive edge clock.
+Creating register for signal `\neuromorphic_bci_top.\u_aer_rx.fifo_mem[9]' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424'.
+  created $dff cell `$procdff$13110' with positive edge clock.
+Creating register for signal `\neuromorphic_bci_top.\u_aer_rx.fifo_mem[10]' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424'.
+  created $dff cell `$procdff$13117' with positive edge clock.
+Creating register for signal `\neuromorphic_bci_top.\u_aer_rx.fifo_mem[11]' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424'.
+  created $dff cell `$procdff$13124' with positive edge clock.
+Creating register for signal `\neuromorphic_bci_top.\u_aer_rx.fifo_mem[12]' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424'.
+  created $dff cell `$procdff$13131' with positive edge clock.
+Creating register for signal `\neuromorphic_bci_top.\u_aer_rx.fifo_mem[13]' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424'.
+  created $dff cell `$procdff$13138' with positive edge clock.
+Creating register for signal `\neuromorphic_bci_top.\u_aer_rx.fifo_mem[14]' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424'.
+  created $dff cell `$procdff$13145' with positive edge clock.
+Creating register for signal `\neuromorphic_bci_top.\u_aer_rx.fifo_mem[15]' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424'.
+  created $dff cell `$procdff$13152' with positive edge clock.
+Creating register for signal `\neuromorphic_bci_top.$flatten\u_aer_rx.$mem2reg_wr$\fifo_mem$rtl/aer_rx.v:93$411_ADDR' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424'.
+  created $adff cell `$procdff$13157' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.$flatten\u_aer_rx.$mem2reg_wr$\fifo_mem$rtl/aer_rx.v:93$411_DATA' using process `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424'.
+  created $adff cell `$procdff$13162' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\leak_cnt' using process `\neuromorphic_bci_top.$proc$rtl/neuromorphic_bci_top.v:76$227'.
+  created $adff cell `$procdff$13167' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\reg_v_threshold' using process `\neuromorphic_bci_top.$proc$rtl/neuromorphic_bci_top.v:54$222'.
+  created $adff cell `$procdff$13172' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\reg_v_reset' using process `\neuromorphic_bci_top.$proc$rtl/neuromorphic_bci_top.v:54$222'.
+  created $adff cell `$procdff$13177' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\reg_refr_period' using process `\neuromorphic_bci_top.$proc$rtl/neuromorphic_bci_top.v:54$222'.
+  created $adff cell `$procdff$13182' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\reg_window_len' using process `\neuromorphic_bci_top.$proc$rtl/neuromorphic_bci_top.v:54$222'.
+  created $adff cell `$procdff$13187' with positive edge clock and positive level reset.
+Creating register for signal `\neuromorphic_bci_top.\reg_leak_prescale' using process `\neuromorphic_bci_top.$proc$rtl/neuromorphic_bci_top.v:54$222'.
+  created $adff cell `$procdff$13192' with positive edge clock and positive level reset.
+
+9.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+9.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 7 empty switches in `\neuromorphic_bci_top.$flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:40$242'.
+Removing empty process `neuromorphic_bci_top.$flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:40$242'.
+Found and cleaned up 9 empty switches in `\neuromorphic_bci_top.$flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:52$250'.
+Removing empty process `neuromorphic_bci_top.$flatten\u_bci_decoder.$proc$rtl/bci_decoder.v:52$250'.
+Found and cleaned up 3 empty switches in `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[0].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+Removing empty process `neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[0].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+Found and cleaned up 3 empty switches in `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[0].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+Removing empty process `neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[0].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+Found and cleaned up 3 empty switches in `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[1].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+Removing empty process `neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[1].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+Found and cleaned up 3 empty switches in `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[1].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+Removing empty process `neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[1].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+Found and cleaned up 3 empty switches in `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[2].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+Removing empty process `neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[2].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+Found and cleaned up 3 empty switches in `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[2].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+Removing empty process `neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[2].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+Found and cleaned up 3 empty switches in `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[3].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+Removing empty process `neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[3].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+Found and cleaned up 3 empty switches in `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[3].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+Removing empty process `neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[3].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+Found and cleaned up 3 empty switches in `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[4].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+Removing empty process `neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[4].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+Found and cleaned up 3 empty switches in `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[4].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+Removing empty process `neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[4].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+Found and cleaned up 3 empty switches in `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[5].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+Removing empty process `neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[5].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+Found and cleaned up 3 empty switches in `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[5].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+Removing empty process `neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[5].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+Found and cleaned up 3 empty switches in `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[6].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+Removing empty process `neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[6].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+Found and cleaned up 3 empty switches in `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[6].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+Removing empty process `neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[6].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+Found and cleaned up 3 empty switches in `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[7].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+Removing empty process `neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[7].u_neuron.$proc$rtl/lif_neuron.v:61$237'.
+Found and cleaned up 3 empty switches in `\neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[7].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+Removing empty process `neuromorphic_bci_top.$flatten\u_neuron_array.\GEN_LIF_NEURONS[7].u_neuron.$proc$rtl/lif_neuron.v:42$231'.
+Found and cleaned up 2 empty switches in `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+Removing empty process `neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:44$280'.
+Found and cleaned up 24 empty switches in `\neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+Removing empty process `neuromorphic_bci_top.$flatten\u_crossbar.$proc$rtl/synaptic_crossbar.v:59$290'.
+Removing empty process `neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:30$413'.
+Found and cleaned up 3 empty switches in `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:48$417'.
+Removing empty process `neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:48$417'.
+Found and cleaned up 3 empty switches in `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424'.
+Removing empty process `neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:87$424'.
+Found and cleaned up 1 empty switch in `\neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:0$439'.
+Removing empty process `neuromorphic_bci_top.$flatten\u_aer_rx.$proc$rtl/aer_rx.v:0$439'.
+Found and cleaned up 1 empty switch in `\neuromorphic_bci_top.$proc$rtl/neuromorphic_bci_top.v:76$227'.
+Removing empty process `neuromorphic_bci_top.$proc$rtl/neuromorphic_bci_top.v:76$227'.
+Found and cleaned up 2 empty switches in `\neuromorphic_bci_top.$proc$rtl/neuromorphic_bci_top.v:54$222'.
+Removing empty process `neuromorphic_bci_top.$proc$rtl/neuromorphic_bci_top.v:54$222'.
+Cleaned up 100 empty switches.
+
+9.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module neuromorphic_bci_top.
+<suppressed ~519 debug messages>
+
+10. Executing OPT pass (performing simple optimizations).
+
+10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module neuromorphic_bci_top.
+<suppressed ~36 debug messages>
+
+10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\neuromorphic_bci_top'.
+<suppressed ~3756 debug messages>
+Removed a total of 1252 cells.
+
+10.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \neuromorphic_bci_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$11020.
+    dead port 2/2 on $mux $procmux$11020.
+    dead port 1/2 on $mux $procmux$11017.
+    dead port 2/2 on $mux $procmux$11017.
+    dead port 1/2 on $mux $procmux$11011.
+    dead port 2/2 on $mux $procmux$11011.
+    dead port 1/2 on $mux $procmux$11008.
+    dead port 2/2 on $mux $procmux$11008.
+    dead port 1/2 on $mux $procmux$11002.
+    dead port 1/2 on $mux $procmux$10738.
+    dead port 2/2 on $mux $procmux$10738.
+    dead port 1/2 on $mux $procmux$10735.
+    dead port 2/2 on $mux $procmux$10735.
+    dead port 1/2 on $mux $procmux$10729.
+    dead port 2/2 on $mux $procmux$10729.
+    dead port 1/2 on $mux $procmux$10726.
+    dead port 2/2 on $mux $procmux$10726.
+    dead port 1/2 on $mux $procmux$10720.
+    dead port 1/2 on $mux $procmux$11584.
+    dead port 2/2 on $mux $procmux$11584.
+    dead port 1/2 on $mux $procmux$11581.
+    dead port 2/2 on $mux $procmux$11581.
+    dead port 1/2 on $mux $procmux$11575.
+    dead port 2/2 on $mux $procmux$11575.
+    dead port 1/2 on $mux $procmux$11572.
+    dead port 2/2 on $mux $procmux$11572.
+    dead port 1/2 on $mux $procmux$11566.
+    dead port 1/2 on $mux $procmux$10456.
+    dead port 2/2 on $mux $procmux$10456.
+    dead port 1/2 on $mux $procmux$10453.
+    dead port 2/2 on $mux $procmux$10453.
+    dead port 1/2 on $mux $procmux$10447.
+    dead port 2/2 on $mux $procmux$10447.
+    dead port 1/2 on $mux $procmux$10444.
+    dead port 2/2 on $mux $procmux$10444.
+    dead port 1/2 on $mux $procmux$10438.
+    dead port 1/2 on $mux $procmux$10174.
+    dead port 2/2 on $mux $procmux$10174.
+    dead port 1/2 on $mux $procmux$10171.
+    dead port 2/2 on $mux $procmux$10171.
+    dead port 1/2 on $mux $procmux$10165.
+    dead port 2/2 on $mux $procmux$10165.
+    dead port 1/2 on $mux $procmux$10162.
+    dead port 2/2 on $mux $procmux$10162.
+    dead port 1/2 on $mux $procmux$10156.
+    dead port 1/2 on $mux $procmux$11900.
+    dead port 2/2 on $mux $procmux$11900.
+    dead port 1/2 on $mux $procmux$11897.
+    dead port 2/2 on $mux $procmux$11897.
+    dead port 1/2 on $mux $procmux$11302.
+    dead port 2/2 on $mux $procmux$11302.
+    dead port 1/2 on $mux $procmux$11299.
+    dead port 2/2 on $mux $procmux$11299.
+    dead port 1/2 on $mux $procmux$11293.
+    dead port 2/2 on $mux $procmux$11293.
+    dead port 1/2 on $mux $procmux$11290.
+    dead port 2/2 on $mux $procmux$11290.
+    dead port 1/2 on $mux $procmux$11284.
+    dead port 1/2 on $mux $procmux$9892.
+    dead port 2/2 on $mux $procmux$9892.
+    dead port 1/2 on $mux $procmux$9889.
+    dead port 2/2 on $mux $procmux$9889.
+    dead port 1/2 on $mux $procmux$9883.
+    dead port 2/2 on $mux $procmux$9883.
+    dead port 1/2 on $mux $procmux$9880.
+    dead port 2/2 on $mux $procmux$9880.
+    dead port 1/2 on $mux $procmux$9874.
+    dead port 1/2 on $mux $procmux$11866.
+    dead port 2/2 on $mux $procmux$11866.
+    dead port 1/2 on $mux $procmux$11863.
+    dead port 2/2 on $mux $procmux$11863.
+    dead port 1/2 on $mux $procmux$11857.
+    dead port 2/2 on $mux $procmux$11857.
+    dead port 1/2 on $mux $procmux$11854.
+    dead port 2/2 on $mux $procmux$11854.
+    dead port 1/2 on $mux $procmux$11848.
+    dead port 1/2 on $mux $procmux$842.
+    dead port 2/2 on $mux $procmux$842.
+    dead port 1/2 on $mux $procmux$839.
+    dead port 2/2 on $mux $procmux$839.
+    dead port 1/2 on $mux $procmux$827.
+    dead port 1/2 on $mux $procmux$791.
+    dead port 1/2 on $mux $procmux$755.
+    dead port 1/2 on $mux $procmux$719.
+    dead port 1/2 on $mux $procmux$683.
+    dead port 1/2 on $mux $procmux$647.
+    dead port 1/2 on $mux $procmux$611.
+    dead port 1/2 on $mux $procmux$575.
+Removed 88 multiplexer ports.
+<suppressed ~247 debug messages>
+
+10.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \neuromorphic_bci_top.
+Performed a total of 0 changes.
+
+10.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\neuromorphic_bci_top'.
+<suppressed ~27 debug messages>
+Removed a total of 9 cells.
+
+10.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$12625 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[53]).
+Adding EN signal on $procdff$12430 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[14]).
+Adding EN signal on $procdff$12765 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[81]).
+Adding EN signal on $procdff$12720 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[72]).
+Adding EN signal on $procdff$12435 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[15]).
+Adding EN signal on $procdff$12630 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[54]).
+Adding EN signal on $procdff$13082 ($dff) from module neuromorphic_bci_top (D = \u_aer_rx.captured_addr, Q = \u_aer_rx.fifo_mem[5]).
+Adding EN signal on $procdff$12440 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[16]).
+Adding EN signal on $procdff$12790 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[86]).
+Adding EN signal on $procdff$12910 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[110]).
+Adding EN signal on $procdff$12835 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[95]).
+Adding EN signal on $procdff$12830 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[94]).
+Adding EN signal on $procdff$12445 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[17]).
+Adding EN signal on $procdff$13015 ($adff) from module neuromorphic_bci_top (D = $procmux$11891_Y, Q = \u_aer_rx.aer_ack).
+Adding EN signal on $procdff$12825 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[93]).
+Adding EN signal on $procdff$12870 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[102]).
+Adding EN signal on $procdff$12450 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[18]).
+Adding EN signal on $procdff$12635 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[55]).
+Adding EN signal on $procdff$12955 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[119]).
+Adding EN signal on $procdff$12985 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[125]).
+Adding EN signal on $procdff$12815 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[91]).
+Adding EN signal on $procdff$12455 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[19]).
+Adding EN signal on $procdff$12930 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[114]).
+Adding EN signal on $procdff$12920 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[112]).
+Adding EN signal on $procdff$12820 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[92]).
+Adding EN signal on $procdff$13075 ($dff) from module neuromorphic_bci_top (D = \u_aer_rx.captured_addr, Q = \u_aer_rx.fifo_mem[4]).
+Adding EN signal on $procdff$12460 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[20]).
+Adding EN signal on $procdff$12640 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[56]).
+Adding EN signal on $procdff$12465 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[21]).
+Adding EN signal on $procdff$12810 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[90]).
+Adding EN signal on $procdff$12950 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[118]).
+Adding EN signal on $procdff$13192 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \reg_leak_prescale).
+Adding EN signal on $procdff$12725 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[73]).
+Adding EN signal on $procdff$12840 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[96]).
+Adding EN signal on $procdff$12970 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[122]).
+Adding EN signal on $procdff$12470 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[22]).
+Adding EN signal on $procdff$12645 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[57]).
+Adding EN signal on $procdff$13182 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [3:0], Q = \reg_refr_period).
+Adding EN signal on $procdff$12770 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[82]).
+Adding EN signal on $procdff$12475 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[23]).
+Adding EN signal on $procdff$13068 ($dff) from module neuromorphic_bci_top (D = \u_aer_rx.captured_addr, Q = \u_aer_rx.fifo_mem[3]).
+Adding EN signal on $procdff$12480 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[24]).
+Adding EN signal on $procdff$13187 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \reg_window_len).
+Adding EN signal on $procdff$12650 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[58]).
+Adding EN signal on $procdff$12945 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[117]).
+Adding EN signal on $procdff$12485 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[25]).
+Adding EN signal on $procdff$12730 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[74]).
+Adding EN signal on $procdff$12935 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[115]).
+Adding EN signal on $procdff$12490 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[26]).
+Adding EN signal on $procdff$12890 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[106]).
+Adding EN signal on $procdff$13177 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [15:0], Q = \reg_v_reset).
+Adding EN signal on $procdff$12655 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[59]).
+Adding EN signal on $procdff$12845 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[97]).
+Adding EN signal on $procdff$12166 ($adff) from module neuromorphic_bci_top (D = \u_bci_decoder.max_idx, Q = \u_bci_decoder.detected_class).
+Adding EN signal on $procdff$12495 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[27]).
+Adding EN signal on $procdff$12800 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[88]).
+Adding EN signal on $procdff$12171 ($adff) from module neuromorphic_bci_top (D = \u_bci_decoder.max_val, Q = \u_bci_decoder.confidence_count).
+Adding EN signal on $procdff$13061 ($dff) from module neuromorphic_bci_top (D = \u_aer_rx.captured_addr, Q = \u_aer_rx.fifo_mem[2]).
+Adding EN signal on $procdff$13172 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [15:0], Q = \reg_v_threshold).
+Adding EN signal on $procdff$12500 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[28]).
+Adding EN signal on $procdff$12925 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[113]).
+Adding EN signal on $procdff$12505 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[29]).
+Adding EN signal on $procdff$12660 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[60]).
+Adding EN signal on $procdff$12875 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[103]).
+Adding EN signal on $procdff$12188 ($adff) from module neuromorphic_bci_top (D = $procmux$542_Y, Q = \u_bci_decoder.spike_counters[0]).
+Adding EN signal on $procdff$12510 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[30]).
+Adding EN signal on $procdff$12193 ($adff) from module neuromorphic_bci_top (D = $procmux$537_Y, Q = \u_bci_decoder.spike_counters[1]).
+Adding EN signal on $procdff$12735 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[75]).
+Adding EN signal on $procdff$12198 ($adff) from module neuromorphic_bci_top (D = $procmux$532_Y, Q = \u_bci_decoder.spike_counters[2]).
+Adding EN signal on $procdff$12515 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[31]).
+Adding EN signal on $procdff$12665 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[61]).
+Adding EN signal on $procdff$12203 ($adff) from module neuromorphic_bci_top (D = $procmux$527_Y, Q = \u_bci_decoder.spike_counters[3]).
+Adding EN signal on $procdff$13054 ($dff) from module neuromorphic_bci_top (D = \u_aer_rx.captured_addr, Q = \u_aer_rx.fifo_mem[1]).
+Adding EN signal on $procdff$12520 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[32]).
+Adding EN signal on $procdff$12208 ($adff) from module neuromorphic_bci_top (D = $procmux$522_Y, Q = \u_bci_decoder.spike_counters[4]).
+Adding EN signal on $procdff$12775 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[83]).
+Adding EN signal on $procdff$12850 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[98]).
+Adding EN signal on $procdff$12213 ($adff) from module neuromorphic_bci_top (D = $procmux$517_Y, Q = \u_bci_decoder.spike_counters[5]).
+Adding EN signal on $procdff$12525 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[33]).
+Adding EN signal on $procdff$12218 ($adff) from module neuromorphic_bci_top (D = $procmux$512_Y, Q = \u_bci_decoder.spike_counters[6]).
+Adding EN signal on $procdff$12980 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[124]).
+Adding EN signal on $procdff$12223 ($adff) from module neuromorphic_bci_top (D = $procmux$507_Y, Q = \u_bci_decoder.spike_counters[7]).
+Adding EN signal on $procdff$12670 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[62]).
+Adding EN signal on $procdff$12530 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[34]).
+Adding EN signal on $procdff$12740 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[76]).
+Adding EN signal on $procdff$12805 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[89]).
+Adding EN signal on $procdff$12535 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[35]).
+Adding EN signal on $procdff$13152 ($dff) from module neuromorphic_bci_top (D = \u_aer_rx.captured_addr, Q = \u_aer_rx.fifo_mem[15]).
+Adding EN signal on $procdff$12238 ($adff) from module neuromorphic_bci_top (D = $procmux$569_Y, Q = \u_neuron_array.GEN_LIF_NEURONS[0].u_neuron.refr_cnt).
+Adding EN signal on $procdff$12675 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[63]).
+Adding EN signal on $procdff$13047 ($dff) from module neuromorphic_bci_top (D = \u_aer_rx.captured_addr, Q = \u_aer_rx.fifo_mem[0]).
+Adding EN signal on $procdff$12540 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[36]).
+Adding EN signal on $procdff$12900 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[108]).
+Adding EN signal on $procdff$12253 ($adff) from module neuromorphic_bci_top (D = $procmux$605_Y, Q = \u_neuron_array.GEN_LIF_NEURONS[1].u_neuron.refr_cnt).
+Adding EN signal on $procdff$12545 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[37]).
+Adding EN signal on $procdff$13145 ($dff) from module neuromorphic_bci_top (D = \u_aer_rx.captured_addr, Q = \u_aer_rx.fifo_mem[14]).
+Adding EN signal on $procdff$12915 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[111]).
+Adding EN signal on $procdff$12855 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[99]).
+Adding EN signal on $procdff$12268 ($adff) from module neuromorphic_bci_top (D = $procmux$641_Y, Q = \u_neuron_array.GEN_LIF_NEURONS[2].u_neuron.refr_cnt).
+Adding EN signal on $procdff$12550 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[38]).
+Adding EN signal on $procdff$12680 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[64]).
+Adding EN signal on $procdff$12745 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[77]).
+Adding EN signal on $procdff$13138 ($dff) from module neuromorphic_bci_top (D = \u_aer_rx.captured_addr, Q = \u_aer_rx.fifo_mem[13]).
+Adding EN signal on $procdff$12555 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[39]).
+Adding EN signal on $procdff$12283 ($adff) from module neuromorphic_bci_top (D = $procmux$677_Y, Q = \u_neuron_array.GEN_LIF_NEURONS[3].u_neuron.refr_cnt).
+Adding EN signal on $procdff$12795 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[87]).
+Adding EN signal on $procdff$13040 ($adff) from module neuromorphic_bci_top (D = $flatten\u_aer_rx.$add$rtl/aer_rx.v:97$437_Y, Q = \u_aer_rx.rd_ptr).
+Adding EN signal on $procdff$12560 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[40]).
+Adding EN signal on $procdff$12685 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[65]).
+Adding EN signal on $procdff$12880 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[104]).
+Adding EN signal on $procdff$13131 ($dff) from module neuromorphic_bci_top (D = \u_aer_rx.captured_addr, Q = \u_aer_rx.fifo_mem[12]).
+Adding EN signal on $procdff$12298 ($adff) from module neuromorphic_bci_top (D = $procmux$713_Y, Q = \u_neuron_array.GEN_LIF_NEURONS[4].u_neuron.refr_cnt).
+Adding EN signal on $procdff$12565 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[41]).
+Adding EN signal on $procdff$12780 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[84]).
+Adding EN signal on $procdff$12940 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[116]).
+Adding EN signal on $procdff$12750 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[78]).
+Adding EN signal on $procdff$12570 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[42]).
+Adding EN signal on $procdff$12313 ($adff) from module neuromorphic_bci_top (D = $procmux$749_Y, Q = \u_neuron_array.GEN_LIF_NEURONS[5].u_neuron.refr_cnt).
+Adding EN signal on $procdff$12690 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[66]).
+Adding EN signal on $procdff$13124 ($dff) from module neuromorphic_bci_top (D = \u_aer_rx.captured_addr, Q = \u_aer_rx.fifo_mem[11]).
+Adding EN signal on $procdff$13035 ($adff) from module neuromorphic_bci_top (D = $flatten\u_aer_rx.$add$rtl/aer_rx.v:94$434_Y, Q = \u_aer_rx.wr_ptr).
+Adding EN signal on $procdff$12575 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[43]).
+Adding EN signal on $procdff$12860 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[100]).
+Adding EN signal on $procdff$12328 ($adff) from module neuromorphic_bci_top (D = $procmux$785_Y, Q = \u_neuron_array.GEN_LIF_NEURONS[6].u_neuron.refr_cnt).
+Adding EN signal on $procdff$12995 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[127]).
+Adding EN signal on $procdff$12580 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[44]).
+Adding EN signal on $procdff$13117 ($dff) from module neuromorphic_bci_top (D = \u_aer_rx.captured_addr, Q = \u_aer_rx.fifo_mem[10]).
+Adding EN signal on $procdff$12695 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[67]).
+Adding EN signal on $procdff$12343 ($adff) from module neuromorphic_bci_top (D = $procmux$821_Y, Q = \u_neuron_array.GEN_LIF_NEURONS[7].u_neuron.refr_cnt).
+Adding EN signal on $procdff$12975 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[123]).
+Adding EN signal on $procdff$12585 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[45]).
+Handling D = Q on $procdff$12348 ($adff) from module neuromorphic_bci_top (removing D path).
+Adding EN signal on $procdff$12895 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[107]).
+Adding EN signal on $procdff$12590 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[46]).
+Handling D = Q on $procdff$12355 ($dff) from module neuromorphic_bci_top (removing D path).
+Adding EN signal on $procdff$12700 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[68]).
+Adding EN signal on $procdff$13110 ($dff) from module neuromorphic_bci_top (D = \u_aer_rx.captured_addr, Q = \u_aer_rx.fifo_mem[9]).
+Adding EN signal on $procdff$12360 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[0]).
+Adding EN signal on $procdff$12755 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[79]).
+Adding EN signal on $procdff$12365 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[1]).
+Adding EN signal on $procdff$12595 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[47]).
+Adding EN signal on $procdff$12965 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[121]).
+Adding EN signal on $procdff$12370 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[2]).
+Adding EN signal on $procdff$12705 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[69]).
+Adding EN signal on $procdff$12600 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[48]).
+Adding EN signal on $procdff$12375 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[3]).
+Adding EN signal on $procdff$12785 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[85]).
+Adding EN signal on $procdff$13103 ($dff) from module neuromorphic_bci_top (D = \u_aer_rx.captured_addr, Q = \u_aer_rx.fifo_mem[8]).
+Adding EN signal on $procdff$12380 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[4]).
+Adding EN signal on $procdff$13025 ($adff) from module neuromorphic_bci_top (D = \aer_addr, Q = \u_aer_rx.captured_addr).
+Adding EN signal on $procdff$12385 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[5]).
+Adding EN signal on $procdff$12605 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[49]).
+Adding EN signal on $procdff$12865 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[101]).
+Adding EN signal on $procdff$12390 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[6]).
+Adding EN signal on $procdff$12990 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[126]).
+Adding EN signal on $procdff$12885 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[105]).
+Adding EN signal on $procdff$12395 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[7]).
+Adding EN signal on $procdff$12610 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[50]).
+Adding EN signal on $procdff$13096 ($dff) from module neuromorphic_bci_top (D = \u_aer_rx.captured_addr, Q = \u_aer_rx.fifo_mem[7]).
+Adding EN signal on $procdff$12400 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[8]).
+Adding EN signal on $procdff$12710 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[70]).
+Adding EN signal on $procdff$12405 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[9]).
+Adding EN signal on $procdff$12760 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[80]).
+Adding EN signal on $procdff$12615 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[51]).
+Adding EN signal on $procdff$12410 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[10]).
+Adding EN signal on $procdff$12960 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[120]).
+Adding EN signal on $procdff$13020 ($adff) from module neuromorphic_bci_top (D = $procmux$11883_Y, Q = \u_aer_rx.state).
+Adding EN signal on $procdff$12415 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[11]).
+Adding EN signal on $procdff$12620 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[52]).
+Adding EN signal on $procdff$13089 ($dff) from module neuromorphic_bci_top (D = \u_aer_rx.captured_addr, Q = \u_aer_rx.fifo_mem[6]).
+Adding EN signal on $procdff$12420 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[12]).
+Adding EN signal on $procdff$12715 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[71]).
+Adding EN signal on $procdff$12425 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[13]).
+Adding EN signal on $procdff$12905 ($adff) from module neuromorphic_bci_top (D = \cfg_wdata [7:0], Q = \u_crossbar.weight_matrix[109]).
+Setting constant 0-bit at position 0 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 1 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 2 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 3 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 1-bit at position 4 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 5 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 6 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 7 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 8 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 9 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 10 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 11 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 12 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 13 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 14 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 15 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 16 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 17 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 18 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 19 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 20 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 21 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 22 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 23 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 24 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 25 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 26 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 27 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 28 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 29 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 30 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 31 on $procdff$12348 ($dlatch) from module neuromorphic_bci_top.
+Setting constant 1-bit at position 0 on $procdff$13000 ($adff) from module neuromorphic_bci_top.
+Setting constant 1-bit at position 1 on $procdff$13000 ($adff) from module neuromorphic_bci_top.
+Setting constant 1-bit at position 2 on $procdff$13000 ($adff) from module neuromorphic_bci_top.
+Setting constant 1-bit at position 3 on $procdff$13000 ($adff) from module neuromorphic_bci_top.
+Setting constant 1-bit at position 4 on $procdff$13000 ($adff) from module neuromorphic_bci_top.
+Setting constant 1-bit at position 5 on $procdff$13000 ($adff) from module neuromorphic_bci_top.
+Setting constant 1-bit at position 6 on $procdff$13000 ($adff) from module neuromorphic_bci_top.
+Setting constant 1-bit at position 0 on $procdff$13157 ($adff) from module neuromorphic_bci_top.
+Setting constant 1-bit at position 1 on $procdff$13157 ($adff) from module neuromorphic_bci_top.
+Setting constant 1-bit at position 2 on $procdff$13157 ($adff) from module neuromorphic_bci_top.
+Setting constant 1-bit at position 3 on $procdff$13157 ($adff) from module neuromorphic_bci_top.
+Setting constant 1-bit at position 0 on $procdff$13005 ($adff) from module neuromorphic_bci_top.
+Setting constant 1-bit at position 1 on $procdff$13005 ($adff) from module neuromorphic_bci_top.
+Setting constant 1-bit at position 2 on $procdff$13005 ($adff) from module neuromorphic_bci_top.
+Setting constant 1-bit at position 3 on $procdff$13005 ($adff) from module neuromorphic_bci_top.
+Setting constant 1-bit at position 4 on $procdff$13005 ($adff) from module neuromorphic_bci_top.
+Setting constant 1-bit at position 5 on $procdff$13005 ($adff) from module neuromorphic_bci_top.
+Setting constant 1-bit at position 6 on $procdff$13005 ($adff) from module neuromorphic_bci_top.
+Setting constant 1-bit at position 7 on $procdff$13005 ($adff) from module neuromorphic_bci_top.
+
+10.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \neuromorphic_bci_top..
+Removed 325 unused cells and 2669 unused wires.
+<suppressed ~328 debug messages>
+
+10.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module neuromorphic_bci_top.
+<suppressed ~129 debug messages>
+
+10.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \neuromorphic_bci_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/129 on $pmux $procmux$11719.
+    dead port 2/129 on $pmux $procmux$11719.
+    dead port 3/129 on $pmux $procmux$11719.
+    dead port 4/129 on $pmux $procmux$11719.
+    dead port 5/129 on $pmux $procmux$11719.
+    dead port 6/129 on $pmux $procmux$11719.
+    dead port 7/129 on $pmux $procmux$11719.
+    dead port 9/129 on $pmux $procmux$11719.
+    dead port 10/129 on $pmux $procmux$11719.
+    dead port 11/129 on $pmux $procmux$11719.
+    dead port 12/129 on $pmux $procmux$11719.
+    dead port 13/129 on $pmux $procmux$11719.
+    dead port 14/129 on $pmux $procmux$11719.
+    dead port 15/129 on $pmux $procmux$11719.
+    dead port 17/129 on $pmux $procmux$11719.
+    dead port 18/129 on $pmux $procmux$11719.
+    dead port 19/129 on $pmux $procmux$11719.
+    dead port 20/129 on $pmux $procmux$11719.
+    dead port 21/129 on $pmux $procmux$11719.
+    dead port 22/129 on $pmux $procmux$11719.
+    dead port 23/129 on $pmux $procmux$11719.
+    dead port 25/129 on $pmux $procmux$11719.
+    dead port 26/129 on $pmux $procmux$11719.
+    dead port 27/129 on $pmux $procmux$11719.
+    dead port 28/129 on $pmux $procmux$11719.
+    dead port 29/129 on $pmux $procmux$11719.
+    dead port 30/129 on $pmux $procmux$11719.
+    dead port 31/129 on $pmux $procmux$11719.
+    dead port 33/129 on $pmux $procmux$11719.
+    dead port 34/129 on $pmux $procmux$11719.
+    dead port 35/129 on $pmux $procmux$11719.
+    dead port 36/129 on $pmux $procmux$11719.
+    dead port 37/129 on $pmux $procmux$11719.
+    dead port 38/129 on $pmux $procmux$11719.
+    dead port 39/129 on $pmux $procmux$11719.
+    dead port 41/129 on $pmux $procmux$11719.
+    dead port 42/129 on $pmux $procmux$11719.
+    dead port 43/129 on $pmux $procmux$11719.
+    dead port 44/129 on $pmux $procmux$11719.
+    dead port 45/129 on $pmux $procmux$11719.
+    dead port 46/129 on $pmux $procmux$11719.
+    dead port 47/129 on $pmux $procmux$11719.
+    dead port 49/129 on $pmux $procmux$11719.
+    dead port 50/129 on $pmux $procmux$11719.
+    dead port 51/129 on $pmux $procmux$11719.
+    dead port 52/129 on $pmux $procmux$11719.
+    dead port 53/129 on $pmux $procmux$11719.
+    dead port 54/129 on $pmux $procmux$11719.
+    dead port 55/129 on $pmux $procmux$11719.
+    dead port 57/129 on $pmux $procmux$11719.
+    dead port 58/129 on $pmux $procmux$11719.
+    dead port 59/129 on $pmux $procmux$11719.
+    dead port 60/129 on $pmux $procmux$11719.
+    dead port 61/129 on $pmux $procmux$11719.
+    dead port 62/129 on $pmux $procmux$11719.
+    dead port 63/129 on $pmux $procmux$11719.
+    dead port 65/129 on $pmux $procmux$11719.
+    dead port 66/129 on $pmux $procmux$11719.
+    dead port 67/129 on $pmux $procmux$11719.
+    dead port 68/129 on $pmux $procmux$11719.
+    dead port 69/129 on $pmux $procmux$11719.
+    dead port 70/129 on $pmux $procmux$11719.
+    dead port 71/129 on $pmux $procmux$11719.
+    dead port 73/129 on $pmux $procmux$11719.
+    dead port 74/129 on $pmux $procmux$11719.
+    dead port 75/129 on $pmux $procmux$11719.
+    dead port 76/129 on $pmux $procmux$11719.
+    dead port 77/129 on $pmux $procmux$11719.
+    dead port 78/129 on $pmux $procmux$11719.
+    dead port 79/129 on $pmux $procmux$11719.
+    dead port 81/129 on $pmux $procmux$11719.
+    dead port 82/129 on $pmux $procmux$11719.
+    dead port 83/129 on $pmux $procmux$11719.
+    dead port 84/129 on $pmux $procmux$11719.
+    dead port 85/129 on $pmux $procmux$11719.
+    dead port 86/129 on $pmux $procmux$11719.
+    dead port 87/129 on $pmux $procmux$11719.
+    dead port 89/129 on $pmux $procmux$11719.
+    dead port 90/129 on $pmux $procmux$11719.
+    dead port 91/129 on $pmux $procmux$11719.
+    dead port 92/129 on $pmux $procmux$11719.
+    dead port 93/129 on $pmux $procmux$11719.
+    dead port 94/129 on $pmux $procmux$11719.
+    dead port 95/129 on $pmux $procmux$11719.
+    dead port 97/129 on $pmux $procmux$11719.
+    dead port 98/129 on $pmux $procmux$11719.
+    dead port 99/129 on $pmux $procmux$11719.
+    dead port 100/129 on $pmux $procmux$11719.
+    dead port 101/129 on $pmux $procmux$11719.
+    dead port 102/129 on $pmux $procmux$11719.
+    dead port 103/129 on $pmux $procmux$11719.
+    dead port 105/129 on $pmux $procmux$11719.
+    dead port 106/129 on $pmux $procmux$11719.
+    dead port 107/129 on $pmux $procmux$11719.
+    dead port 108/129 on $pmux $procmux$11719.
+    dead port 109/129 on $pmux $procmux$11719.
+    dead port 110/129 on $pmux $procmux$11719.
+    dead port 111/129 on $pmux $procmux$11719.
+    dead port 113/129 on $pmux $procmux$11719.
+    dead port 114/129 on $pmux $procmux$11719.
+    dead port 115/129 on $pmux $procmux$11719.
+    dead port 116/129 on $pmux $procmux$11719.
+    dead port 117/129 on $pmux $procmux$11719.
+    dead port 118/129 on $pmux $procmux$11719.
+    dead port 119/129 on $pmux $procmux$11719.
+    dead port 121/129 on $pmux $procmux$11719.
+    dead port 122/129 on $pmux $procmux$11719.
+    dead port 123/129 on $pmux $procmux$11719.
+    dead port 124/129 on $pmux $procmux$11719.
+    dead port 125/129 on $pmux $procmux$11719.
+    dead port 126/129 on $pmux $procmux$11719.
+    dead port 127/129 on $pmux $procmux$11719.
+Removed 112 multiplexer ports.
+<suppressed ~96 debug messages>
+
+10.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \neuromorphic_bci_top.
+Performed a total of 0 changes.
+
+10.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\neuromorphic_bci_top'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+10.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \neuromorphic_bci_top..
+Removed 0 unused cells and 116 unused wires.
+<suppressed ~4 debug messages>
+
+10.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module neuromorphic_bci_top.
+
+10.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \neuromorphic_bci_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~96 debug messages>
+
+10.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \neuromorphic_bci_top.
+Performed a total of 0 changes.
+
+10.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\neuromorphic_bci_top'.
+Removed a total of 0 cells.
+
+10.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \neuromorphic_bci_top..
+
+10.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module neuromorphic_bci_top.
+
+10.23. Finished OPT passes. (There is nothing left to do.)
+
+11. Executing FSM pass (extract and optimize FSM).
+
+11.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+11.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+11.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \neuromorphic_bci_top..
+
+11.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+11.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+11.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+11.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+12. Executing OPT pass (performing simple optimizations).
+
+12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module neuromorphic_bci_top.
+
+12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\neuromorphic_bci_top'.
+Removed a total of 0 cells.
+
+12.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \neuromorphic_bci_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~96 debug messages>
+
+12.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \neuromorphic_bci_top.
+Performed a total of 0 changes.
+
+12.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\neuromorphic_bci_top'.
+Removed a total of 0 cells.
+
+12.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+12.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \neuromorphic_bci_top..
+
+12.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module neuromorphic_bci_top.
+
+12.9. Finished OPT passes. (There is nothing left to do.)
+
+13. Executing MEMORY pass.
+
+13.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+13.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+13.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+13.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+13.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+13.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \neuromorphic_bci_top..
+
+13.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+13.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+13.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \neuromorphic_bci_top..
+
+13.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+13.11. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+14. Executing OPT pass (performing simple optimizations).
+
+14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module neuromorphic_bci_top.
+
+14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\neuromorphic_bci_top'.
+Removed a total of 0 cells.
+
+14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \neuromorphic_bci_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~96 debug messages>
+
+14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \neuromorphic_bci_top.
+Performed a total of 0 changes.
+
+14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\neuromorphic_bci_top'.
+Removed a total of 0 cells.
+
+14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \neuromorphic_bci_top..
+
+14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module neuromorphic_bci_top.
+
+14.9. Finished OPT passes. (There is nothing left to do.)
+
+15. Executing TECHMAP pass (map to technology primitives).
+
+15.1. Executing Verilog-2005 frontend: /usr/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+15.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $logic_not.
+Running "alumacc" on wrapper $extern:wrap:$add:A_SIGNED=0:A_WIDTH=8:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=8:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=8:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=8:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$add:A_SIGNED=0:A_WIDTH=8:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=8:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$add:A_SIGNED=0:A_WIDTH=5:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=5:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=5:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=5:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$add:A_SIGNED=0:A_WIDTH=5:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=5:394426c56d1a028ba8fdd5469b163e04011def47.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $reduce_bool.
+Running "alumacc" on wrapper $extern:wrap:$add:A_SIGNED=0:A_WIDTH=32:B_SIGNED=0:B_WIDTH=32:Y_WIDTH=32:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=32:B_SIGNED=0:B_WIDTH=32:Y_WIDTH=32:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$add:A_SIGNED=0:A_WIDTH=32:B_SIGNED=0:B_WIDTH=32:Y_WIDTH=32:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$add:A_SIGNED=0:A_WIDTH=32:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=32:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=32:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=32:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$add:A_SIGNED=0:A_WIDTH=32:B_SIGNED=0:B_WIDTH=3:Y_WIDTH=32:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$gt:A_SIGNED=1:A_WIDTH=16:B_SIGNED=1:B_WIDTH=16:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$gt:A_SIGNED=1:A_WIDTH=16:B_SIGNED=1:B_WIDTH=16:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$gt:A_SIGNED=1:A_WIDTH=16:B_SIGNED=1:B_WIDTH=16:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$sub:A_SIGNED=1:A_WIDTH=17:B_SIGNED=1:B_WIDTH=17:Y_WIDTH=17:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$sub:A_SIGNED=1:A_WIDTH=17:B_SIGNED=1:B_WIDTH=17:Y_WIDTH=17:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$sub:A_SIGNED=1:A_WIDTH=17:B_SIGNED=1:B_WIDTH=17:Y_WIDTH=17:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$add:A_SIGNED=0:A_WIDTH=17:B_SIGNED=0:B_WIDTH=17:Y_WIDTH=17:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$add:A_SIGNED=0:A_WIDTH=17:B_SIGNED=0:B_WIDTH=17:Y_WIDTH=17:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$add:A_SIGNED=0:A_WIDTH=17:B_SIGNED=0:B_WIDTH=17:Y_WIDTH=17:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=4:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=4:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=4:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=17:B_SIGNED=0:B_WIDTH=17:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=17:B_SIGNED=0:B_WIDTH=17:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=17:B_SIGNED=0:B_WIDTH=17:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=17:B_SIGNED=0:B_WIDTH=17:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=17:B_SIGNED=0:B_WIDTH=17:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$lt:A_SIGNED=0:A_WIDTH=17:B_SIGNED=0:B_WIDTH=17:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=8:B_SIGNED=0:B_WIDTH=8:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=8:B_SIGNED=0:B_WIDTH=8:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=8:B_SIGNED=0:B_WIDTH=8:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=8:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=8:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=8:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=8:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=8:B_SIGNED=0:B_WIDTH=1:Y_WIDTH=8:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$gt:A_SIGNED=0:A_WIDTH=8:B_SIGNED=0:B_WIDTH=8:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$gt:A_SIGNED=0:A_WIDTH=8:B_SIGNED=0:B_WIDTH=8:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$gt:A_SIGNED=0:A_WIDTH=8:B_SIGNED=0:B_WIDTH=8:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using extmapper simplemap for cells of type $adffe.
+Using template $paramod$abf49d17239f4e65bf6cfee5864d7c007f780995\_90_pmux for cells of type $pmux.
+Using template $paramod$29dcfde687ab76cd03c4ee062fb9520b20dbe845\_90_pmux for cells of type $pmux.
+Using template $paramod$521ce43182eecb9f60c72393a788160d2c356bf5\_90_pmux for cells of type $pmux.
+Using template $paramod$c5c783b17ab1d780abfad8cfe6563a0a7b47a3b0\_90_pmux for cells of type $pmux.
+Using template $paramod$6863e1b1be43261f2ba1994668afd7276ab0f23f\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $adff.
+Using extmapper simplemap for cells of type $dffe.
+Using template $paramod$672a140277c71df8314410f22acc08d55222c3c7\_90_alu for cells of type $alu.
+Using template $paramod$c3cd1564c35d873179656addd6052d7ea8b6d991\_90_alu for cells of type $alu.
+Using template $paramod$fbc7873bff55778c0b3173955b7e4bce1d9d6834\_90_alu for cells of type $alu.
+Using template $paramod$076c9a7a3f037230073fe14dd4865d470cb48917\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod$d4c0c20b0ee59f495e14575c4397dc0a6dd9e8e6\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $not.
+Using template $paramod$0f9ec1a5c604af8320b4d806039a9d64938c6a2d\_90_alu for cells of type $alu.
+Using template $paramod$3bb72ad0665cdca279bbc49ed6a39f403f16497f\_90_alu for cells of type $alu.
+Using template $paramod$8742280fdebca84e1c87f2a86ed84f62d558f4cc\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $reduce_or.
+Using template $paramod$403a3c2fa431a154c52a6a5429d7a6260b5d144f\_90_alu for cells of type $alu.
+Using template $paramod$a1bc51c02ce12ac21eb18988e83292af48ed7d72\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $and.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000101 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001000 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000100000 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000010000 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000010001 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000100 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~9239 debug messages>
+
+16. Executing OPT pass (performing simple optimizations).
+
+16.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module neuromorphic_bci_top.
+<suppressed ~30387 debug messages>
+
+16.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\neuromorphic_bci_top'.
+<suppressed ~20634 debug messages>
+Removed a total of 6878 cells.
+
+16.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \neuromorphic_bci_top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+16.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \neuromorphic_bci_top.
+Performed a total of 0 changes.
+
+16.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\neuromorphic_bci_top'.
+Removed a total of 0 cells.
+
+16.6. Executing OPT_DFF pass (perform DFF optimizations).
+Handling never-active EN on $auto$ff.cc:266:slice$39654 ($_DFFE_PN0P_) from module neuromorphic_bci_top (removing D path).
+Handling never-active EN on $auto$ff.cc:266:slice$40001 ($_DFFE_PN0P_) from module neuromorphic_bci_top (removing D path).
+Handling never-active EN on $auto$ff.cc:266:slice$39661 ($_DFFE_PN0P_) from module neuromorphic_bci_top (removing D path).
+Handling never-active EN on $auto$ff.cc:266:slice$39627 ($_DFFE_PN0P_) from module neuromorphic_bci_top (removing D path).
+Handling never-active EN on $auto$ff.cc:266:slice$39641 ($_DFFE_PN0P_) from module neuromorphic_bci_top (removing D path).
+Handling never-active EN on $auto$ff.cc:266:slice$39640 ($_DFFE_PN0P_) from module neuromorphic_bci_top (removing D path).
+Handling never-active EN on $auto$ff.cc:266:slice$39655 ($_DFFE_PN0P_) from module neuromorphic_bci_top (removing D path).
+Handling never-active EN on $auto$ff.cc:266:slice$39999 ($_DFFE_PN0P_) from module neuromorphic_bci_top (removing D path).
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$39999 ($_DLATCH_N_) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$39655 ($_DLATCH_N_) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$39640 ($_DLATCH_N_) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$39641 ($_DLATCH_N_) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$39627 ($_DLATCH_N_) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$39661 ($_DLATCH_N_) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$40001 ($_DLATCH_N_) from module neuromorphic_bci_top.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$39654 ($_DLATCH_N_) from module neuromorphic_bci_top.
+
+16.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \neuromorphic_bci_top..
+Removed 1258 unused cells and 14865 unused wires.
+<suppressed ~1260 debug messages>
+
+16.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module neuromorphic_bci_top.
+<suppressed ~304 debug messages>
+
+16.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+16.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \neuromorphic_bci_top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+16.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \neuromorphic_bci_top.
+Performed a total of 0 changes.
+
+16.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\neuromorphic_bci_top'.
+Removed a total of 0 cells.
+
+16.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \neuromorphic_bci_top..
+Removed 0 unused cells and 64 unused wires.
+<suppressed ~1 debug messages>
+
+16.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module neuromorphic_bci_top.
+
+16.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+16.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \neuromorphic_bci_top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+16.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \neuromorphic_bci_top.
+Performed a total of 0 changes.
+
+16.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\neuromorphic_bci_top'.
+Removed a total of 0 cells.
+
+16.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+16.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \neuromorphic_bci_top..
+
+16.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module neuromorphic_bci_top.
+
+16.23. Finished OPT passes. (There is nothing left to do.)
+
+17. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell DFF_X1 (noninv, pins=4, area=4.52) is a direct match for cell type $_DFF_P_.
+  cell DFFR_X1 (noninv, pins=5, area=5.32) is a direct match for cell type $_DFF_PN0_.
+  cell DFFS_X1 (noninv, pins=5, area=5.32) is a direct match for cell type $_DFF_PN1_.
+  cell DFFRS_X1 (noninv, pins=6, area=6.38) is a direct match for cell type $_DFFSR_PNN_.
+  final dff cell mappings:
+    unmapped dff cell: $_DFF_N_
+    \DFF_X1 _DFF_P_ (.CK( C), .D( D), .Q( Q), .QN(~Q));
+    unmapped dff cell: $_DFF_NN0_
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    \DFFR_X1 _DFF_PN0_ (.CK( C), .D( D), .Q( Q), .QN(~Q), .RN( R));
+    \DFFS_X1 _DFF_PN1_ (.CK( C), .D( D), .Q( Q), .QN(~Q), .SN( R));
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    unmapped dff cell: $_DFFE_NN_
+    unmapped dff cell: $_DFFE_NP_
+    unmapped dff cell: $_DFFE_PN_
+    unmapped dff cell: $_DFFE_PP_
+    unmapped dff cell: $_DFFSR_NNN_
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    \DFFRS_X1 _DFFSR_PNN_ (.CK( C), .D( D), .Q( Q), .QN(~Q), .RN( R), .SN( S));
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+17.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+<suppressed ~8 debug messages>
+Mapping DFF cells in module `\neuromorphic_bci_top':
+  mapped 841 $_DFF_PN0_ cells to \DFFR_X1 cells.
+  mapped 4 $_DFF_PN1_ cells to \DFFS_X1 cells.
+  mapped 64 $_DFF_P_ cells to \DFF_X1 cells.
+
+18. Executing ABC pass (technology mapping using ABC).
+
+18.1. Extracting gate netlist of module `\neuromorphic_bci_top' to `<abc-temp-dir>/input.blif'..
+Replacing 368 occurrences of constant undef bits with constant zero bits
+Extracted 8528 gates and 9670 wires to a netlist network with 1139 inputs and 906 outputs.
+
+18.1.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /mnt/c/Users/surya/OneDrive/Documents/COLLEGE_RESEARCH/neuromorphic-bci-core/synth/nangate45.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.07 sec
+ABC: Scl_LibertyReadGenlib() skipped cell "ANTENNA_X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATETST_X1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATETST_X2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATETST_X4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATETST_X8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATE_X1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATE_X2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATE_X4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "CLKGATE_X8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFRS_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFRS_X2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFR_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFR_X2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFS_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFS_X2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF_X2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DLH_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DLH_X2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DLL_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DLL_X2".
+ABC: Scl_LibertyReadGenlib() skipped cell "FILLCELL_X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "TAPCELL_X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "FILLCELL_X2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "FILLCELL_X4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "FILLCELL_X8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "FILLCELL_X16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "FILLCELL_X32" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "LOGIC0_X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "LOGIC1_X1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFFRS_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFFRS_X2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFFR_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFFR_X2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFFS_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFFS_X2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFF_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "SDFF_X2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF_X1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF_X2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF_X4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF_X8".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TBUF_X16".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "TINV_X1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "TLAT_X1".
+ABC: Library "NangateOpenCellLibrary" from "/mnt/c/Users/surya/OneDrive/Documents/COLLEGE_RESEARCH/neuromorphic-bci-core/synth/nangate45.lib" has 90 cells (35 skipped: 21 seq; 6 tri-state; 8 no func; 10 dont_use).  Time =     0.09 sec
+ABC: Memory =   11.38 MB. Time =     0.09 sec
+ABC: Warning: Detected 2 multi-output gates (for example, "FA_X1").
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+18.1.2. Re-integrating ABC results.
+ABC RESULTS:           AND2_X1 cells:      168
+ABC RESULTS:           AND3_X1 cells:       69
+ABC RESULTS:           AND4_X1 cells:       10
+ABC RESULTS:         AOI211_X1 cells:      110
+ABC RESULTS:          AOI21_X1 cells:      360
+ABC RESULTS:         AOI221_X1 cells:       72
+ABC RESULTS:         AOI222_X1 cells:      115
+ABC RESULTS:          AOI22_X1 cells:      121
+ABC RESULTS:            INV_X1 cells:      251
+ABC RESULTS:           MUX2_X1 cells:      857
+ABC RESULTS:          NAND2_X1 cells:      678
+ABC RESULTS:          NAND3_X1 cells:      137
+ABC RESULTS:          NAND4_X1 cells:       29
+ABC RESULTS:           NOR2_X1 cells:      390
+ABC RESULTS:           NOR3_X1 cells:      148
+ABC RESULTS:           NOR4_X1 cells:       41
+ABC RESULTS:         OAI211_X1 cells:      100
+ABC RESULTS:          OAI21_X1 cells:      413
+ABC RESULTS:         OAI221_X1 cells:      100
+ABC RESULTS:          OAI22_X1 cells:       90
+ABC RESULTS:          OAI33_X1 cells:        9
+ABC RESULTS:            OR2_X1 cells:       89
+ABC RESULTS:            OR3_X1 cells:       34
+ABC RESULTS:            OR4_X1 cells:       13
+ABC RESULTS:          XNOR2_X1 cells:      344
+ABC RESULTS:           XOR2_X1 cells:      134
+ABC RESULTS:          _const0_ cells:        1
+ABC RESULTS:        internal signals:     7625
+ABC RESULTS:           input signals:     1139
+ABC RESULTS:          output signals:      906
+Removing temp directory.
+Removed 0 unused cells and 5167 unused wires.
+
+19. Printing statistics.
+
+=== neuromorphic_bci_top ===
+
+   Number of wires:               5914
+   Number of wire bits:           8317
+   Number of public wires:         284
+   Number of public wire bits:    2381
+   Number of ports:                 12
+   Number of port bits:             69
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               5803
+     $scopeinfo                     12
+     AND2_X1                       168
+     AND3_X1                        69
+     AND4_X1                        10
+     AOI211_X1                     110
+     AOI21_X1                      360
+     AOI221_X1                      72
+     AOI222_X1                     115
+     AOI22_X1                      121
+     DFFR_X1                       841
+     DFFS_X1                         4
+     DFF_X1                         64
+     INV_X1                        251
+     MUX2_X1                       857
+     NAND2_X1                      678
+     NAND3_X1                      137
+     NAND4_X1                       29
+     NOR2_X1                       390
+     NOR3_X1                       148
+     NOR4_X1                        41
+     OAI211_X1                     100
+     OAI21_X1                      413
+     OAI221_X1                     100
+     OAI22_X1                       90
+     OAI33_X1                        9
+     OR2_X1                         89
+     OR3_X1                         34
+     OR4_X1                         13
+     XNOR2_X1                      344
+     XOR2_X1                       134
+
+   Area for cell type $scopeinfo is unknown!
+
+   Chip area for module '\neuromorphic_bci_top': 10891.104000
+     of which used for sequential elements: 4784.808000 (43.93%)
+
+20. Executing Verilog backend.
+
+20.1. Executing BMUXMAP pass.
+
+20.2. Executing DEMUXMAP pass.
+Dumping module `\neuromorphic_bci_top'.
+
+Warnings: 4 unique messages, 8 total
+End of script. Logfile hash: bbfc2e4f66, CPU: user 3.40s system 0.19s, MEM: 120.00 MB peak
+Yosys 0.52 (git sha1 fee39a3284c90249e1d9684cf6944ffbbcbb8f90)
+Time spent: 29% 1x abc (1 sec), 20% 25x opt_expr (0 sec), ...

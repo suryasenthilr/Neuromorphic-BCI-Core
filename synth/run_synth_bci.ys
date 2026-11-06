@@ -1,0 +1,42 @@
+# ==============================================================================
+# Yosys ASIC Synthesis Script for Neuromorphic BCI Core
+# Target PDK: Nangate 45nm Open Cell Library (Standard VT)
+# Top Module: neuromorphic_bci_top
+# ==============================================================================
+
+# 1. Read Verilog RTL design files
+read_verilog -sv rtl/lif_neuron.v
+read_verilog -sv rtl/aer_rx.v
+read_verilog -sv rtl/synaptic_crossbar.v
+read_verilog -sv rtl/neuron_array.v
+read_verilog -sv rtl/bci_decoder.v
+read_verilog -sv rtl/neuromorphic_bci_top.v
+
+# 2. Elaborate hierarchy & flatten
+hierarchy -check -top neuromorphic_bci_top
+flatten
+
+# 3. High-level synthesis & optimizations
+proc
+opt
+fsm
+opt
+memory
+opt
+
+# 4. Tech mapping & arithmetic optimizations
+techmap
+opt
+
+# 5. Technology mapping to Nangate 45nm standard cell library
+dfflibmap -liberty synth/nangate45.lib
+abc -liberty synth/nangate45.lib
+
+# 6. Clean-up & optimization
+clean
+
+# 7. Print comprehensive cell statistics & silicon area
+stat -liberty synth/nangate45.lib
+
+# 8. Write gate-level synthesized netlist
+write_verilog -noattr synth/neuromorphic_bci_nangate45_netlist.v
